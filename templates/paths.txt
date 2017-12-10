@@ -1,0 +1,12 @@
+Пътища:
+
+/login
+/register
+/home  (guest)
+/home (logged user)
+/admin/addPlace
+/admin/moderateMsg
+/allPlace
+/profile/:id
+/profile/:id/wishToVisit
+/profile/:id/myVisitPlace

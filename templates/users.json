@@ -1,0 +1,13 @@
+[
+	{
+		"id" : 1,
+		"username" : "pesho",
+		"firstName" : "Pesho",
+		"lastName" : "Peshov",
+		"email" : "pesho@abv.bg",
+		"password" : "pesho",
+		"roles" : "user",
+		"myVisitPlace" : [],
+		"wishToVisit" : []
+	}
+]

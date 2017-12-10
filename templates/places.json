@@ -1,0 +1,16 @@
+[
+	{
+		"id": 1,
+		"images": ["https://www.visitsofia.bg/images/vegas_media/category50000/object2276/632705d974b784446e458613261ee626.jpg"],
+		"lat": 42.6976117,
+		"lng": 23.3271014,
+		"country" : "Bulgaria",
+		"city" "Sofia",
+		"description" : "some description here",
+		"author": "Bai Milan",
+		"comments" : ["comment 1", "comment 2"],
+		"likes": 5,
+		"category" : "religion",
+		"rating" : 2
+	}
+]

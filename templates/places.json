@@ -5,7 +5,7 @@
 		"lat": 42.6976117,
 		"lng": 23.3271014,
 		"country" : "Bulgaria",
-		"city" "Sofia",
+		"city" : "Sofia",
 		"description" : "some description here",
 		"author": "Bai Milan",
 		"comments" : ["comment 1", "comment 2"],

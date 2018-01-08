@@ -4,9 +4,9 @@
 /register
 /home  (guest)
 /home (logged user)
-/admin/addPlace
+/admin/addPlaces
 /admin/moderateMsg
 /allPlace
 /profile/:id
 /profile/:id/wishToVisit
-/profile/:id/myVisitPlace
+/profile/:id/myVisitPlaces

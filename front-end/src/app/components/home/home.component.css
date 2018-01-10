@@ -1,0 +1,37 @@
+.card{
+  margin: 1rem;
+  padding: 1rem;
+  border: 0.5em cyan double;
+  width: 33rem;
+  height: 60rem;
+}
+
+ul {
+  list-style: none;
+}
+
+h5{
+  border-style: none none double none;
+  border-color: cyan;
+}
+
+h4{
+  font-family: Monotype Corsiva;
+  text-align: center;
+  border-style: none none double none;
+  border-color: cyan;
+}
+
+img.resize {
+  max-width: 27rem;
+  height: auto;
+}
+
+.title{
+  text-align: center;
+  font-family: "Monotype Corsiva";
+  font-size: 28px;
+  text-shadow: 0 0 2px cyan;
+  border-style: none none double none;
+  border-color: cyan;
+}

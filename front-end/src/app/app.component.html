@@ -1,22 +1,9 @@
 <div class="container">
-  <h1>
-    {{title}}
-  </h1>
-
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div *ngIf="!authService.isLoggedIn()">
-      <a routerLink="/login" class="navbar-brand active">Login</a>
-      <a routerLink="/register" class="navbar-brand active">Register</a>
-    </div>
-    <div *ngIf="authService.isLoggedIn()">
-      <a routerLink="/home" class="navbar-brand active">Home</a>
-      <a routerLink="/logout" class="navbar-brand">Logout</a>
-    </div>
-  </nav>
+  <app-header></app-header>
 
   <div id="content">
     <router-outlet></router-outlet>
   </div>
 
-  <footer></footer>
+  <app-footer></app-footer>
 </div>

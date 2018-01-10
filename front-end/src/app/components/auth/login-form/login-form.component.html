@@ -1,14 +1,15 @@
+{{diagnostics}}
 <div class="container">
     <h1>Login</h1>
     <form (ngSubmit)="login()" #loginForm="ngForm">
       <div class="form-group">
-        <label for="username">Username</label>
-        <input type="text" class="form-control" id="username"
+        <label for="userName">Username</label>
+        <input type="text" class="form-control" id="userName"
         required
-        [(ngModel)]="model.username"
-        name="username"
-        #username="ngModel">
-        <div [hidden]="username.valid || username.pristine" class="alert alert-danger">
+        [(ngModel)]="model.userName"
+        name="userName"
+        #userName="ngModel">
+        <div [hidden]="userName.valid || userName.pristine" class="alert alert-danger">
           Username is required!
         </div>
       </div>

@@ -10,38 +10,38 @@ import { CookieService } from 'ngx-cookie';
   styleUrls: ['./login-form.component.css']
 })
 export class LoginFormComponent {
-  public model : LoginModel;
-  public loginFail : boolean;
-  public username : string;
+  public model: LoginModel;
+  public loginFail: boolean;
+  public username: string;
 
   constructor(
-    private authService : AuthenticationService,
-    private router : Router
+    private authService: AuthenticationService,
+    private router: Router
   ) {
     this.model = new LoginModel("", "");
     this.username = "";
   }
 
-  login () : void {
+  login(): void {
     this.authService.login(this.model)
       .subscribe(
-        data => {
-          this.successfulLogin(data);
-        },
-        err => {
-          this.loginFail = true;
-        }
-      )
+      data => {
+        this.successfulLogin(data);
+      },
+      err => {
+        this.loginFail = true;
+      })
   }
 
-  get diagnostics() : string {
+  get diagnostics(): string {
     return JSON.stringify(this.model);
   }
 
-  successfulLogin(data) : void {
-    this.authService.authtoken = data['_kmd']['authtoken'];
-    localStorage.setItem('authtoken', data['_kmd']['authtoken']);
-    localStorage.setItem('username', data['username']);
+  successfulLogin(data): void {
+    console.log(this.authService)
+    this.authService.authtoken = data['token'];
+    localStorage.setItem('authtoken', data['token']);
+    localStorage.setItem('username', data['userName']);
     localStorage.setItem('role', data['role']);
     this.loginFail = false;
     this.router.navigate(['/home']);

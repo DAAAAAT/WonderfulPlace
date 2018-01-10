@@ -45,4 +45,4 @@ User.seedAdminUser = async () => {
     }
 }
 
-module.exports = User
+module.exports = User;

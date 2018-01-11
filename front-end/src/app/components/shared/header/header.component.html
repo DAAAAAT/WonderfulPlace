@@ -4,7 +4,10 @@
     <a routerLink="/register" class="navbar-brand active">Register</a>
   </div>
   <div *ngIf="authService.isLoggedIn()">
-    <a routerLink="/home" class="navbar-brand active">Home</a>
+    <a routerLink="/publish" class="navbar-brand">Publish Destination</a>
+    <a routerLink="/wishList" class="navbar-brand">Wish To Visit List</a>
+    <a routerLink="/allDestinations" class="navbar-brand">All Destinations</a>
+    <a routerLink="/myDestinations" class="navbar-brand">My Destinations</a>
     <a routerLink="/logout" class="navbar-brand">Logout</a>
   </div>
 </nav>

@@ -8,6 +8,10 @@ import { HomeComponent } from './components/home/home.component';
 import { AppRoutesModule } from './app-routing.module';
 import { HeaderComponent } from './components/shared/header/header.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
+import { PublishDestinationComponent } from './components/destinations/publish-destination/publish-destination.component';
+import { WishListComponent } from './components/wish-list/wish-list.component';
+import { AllDestinationsComponent } from './components/destinations/all-destinations/all-destinations.component';
+import { MyDestinationsComponent } from './components/destinations/my-destinations/my-destinations.component';
 
 
 @NgModule({
@@ -15,7 +19,11 @@ import { FooterComponent } from './components/shared/footer/footer.component';
     AppComponent,
     HomeComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    PublishDestinationComponent,
+    WishListComponent,
+    AllDestinationsComponent,
+    MyDestinationsComponent
   ],
   imports: [
     BrowserModule,

@@ -5,12 +5,16 @@ const authRoutes = require('./auth');
 const profileRoutes = require('./profile')
 const about = require('./about');
 const homeRoutes = require('./home');
+const adminRoutes = require('./admin');
+const placeRoutes = require('./place');
 
 module.exports = (app) => {
     app.post('/login', authRoutes.login);
     app.post('/register', authRoutes.register);
     app.use('/profile', authCheck, profileRoutes);
-    app.use('/', homeRoutes)
+    app.use('/', homeRoutes);    
+    app.use('/admin',  adminRoutes);
+    app.use('/place',  placeRoutes);
     // app.get('/about',roleCheck('Admin'), about.getAbout);
 };
 

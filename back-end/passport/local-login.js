@@ -4,27 +4,27 @@ const User = require('mongoose').model('User');
 
 
 module.exports = new PassportLocalStrategy({
-  usernameField: 'email',
+  usernameField: 'userName',
   passwordField: 'password',
   session: false,
   passReqToCallback: true
-}, async (req, email, password, done) => {
+}, async (req, userName, password, done) => {
   const user = {
-    email: email.trim(),
+    userName: userName.trim(),
     password: password.trim()
   }
 
-  let savedUser = await User.findOne({email: email})
+  let savedUser = await User.findOne({userName: userName})
 
   if (!savedUser || savedUser === null) {
-    const error = new Error('Incorrect email or password')
+    const error = new Error('Incorrect userName or password')
     error.name = 'IncorrectCredentialsError'
 
     return done(error)
   }
 
   if (!savedUser.authenticate(user.password)) {
-    const error = new Error('Incorrect email or password')
+    const error = new Error('Incorrect userName or password')
     error.name = 'IncorrectCredentialsError'
 
     return done(error)

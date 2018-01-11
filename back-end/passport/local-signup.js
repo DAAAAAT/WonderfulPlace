@@ -19,9 +19,9 @@ module.exports = new PassportLocalStrategy({
     lastName: req.body.lastName,
   }
 
-  let isUserExist = await User.findOne({email: email});
+  let isUserExist = await User.findOne({userName: user.userName});
   if (isUserExist !== null) {
-    return done('E-mail already exists!')
+    return done('User already exists!')
   }
   // usersData.save(user)
 

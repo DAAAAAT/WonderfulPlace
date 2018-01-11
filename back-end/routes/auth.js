@@ -12,6 +12,11 @@ function validateSignupForm (payload) {
         errors.email = 'Please provide a correct email address.';
     }
 
+    if (!payload || typeof payload.userName !== 'string' || payload.userName.trim().length === 0) {
+        isFormValid = false;
+        errors.userName = 'Please provide a correct userName.';
+    }
+
     if (!payload || typeof payload.password !== 'string' || payload.password.trim().length < 4) {
         isFormValid = false;
         errors.password = 'Password must have at least 4 characters.';
@@ -33,9 +38,9 @@ function validateLoginForm (payload) {
     let isFormValid = true;
     let message = '';
 
-    if (!payload || typeof payload.email !== 'string' || payload.email.trim().length === 0) {
+    if (!payload || typeof payload.userName !== 'string' || payload.userName.trim().length === 0) {
         isFormValid = false;
-        errors.email = 'Please provide your email address.';
+        errors.userName = 'Please provide your userName.';
     }
 
     if (!payload || typeof payload.password !== 'string' || payload.password.trim().length === 0) {

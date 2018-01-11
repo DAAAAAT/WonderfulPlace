@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const encryption = require('../util/encryption')
 
 const userSchema = new mongoose.Schema({
-    userName: {type: mongoose.Schema.Types.String, required: true},
+    userName: {type: mongoose.Schema.Types.String, required: true, unique: [true, 'userName already exists!']},
     firstName: {type: mongoose.Schema.Types.String},
     lastName: {type: mongoose.Schema.Types.String},
     email: {type: mongoose.Schema.Types.String, required: true, unique: [true, 'E-mail already exists!'] },    

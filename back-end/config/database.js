@@ -4,6 +4,7 @@ mongoose.Promise = global.Promise;
 const User = require('../models/User')
 const Place = require('../models/Place')
 const Category = require('../models/Category')
+const Comment = require('../models/Comment')
 
 module.exports = (config) => {
     mongoose.connect(config.dbPath, {

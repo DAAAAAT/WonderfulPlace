@@ -4,6 +4,7 @@ const router = new express.Router();
 const Place = require('mongoose').model('Place');
 const Category = require('mongoose').model('Category');
 const User = require('mongoose').model('User');
+const Comment = require('mongoose').model('Comment');
 
 
 
@@ -95,6 +96,21 @@ router.delete('/deleteCategory/:id', async (req, res, next) => {
             res.status(200).json({
                 success: true,
                 deletedCategory
+            });
+        }).catch(err => handleError(err, res))
+    } catch (err) {
+        handleError(err, res)
+    }
+})
+
+router.delete('/deleteComment/:id', async (req, res, next) => {
+    try {
+        let id = req.params.id
+
+        Comment.findByIdAndRemove(id).then((deletedComment) => {
+            res.status(200).json({
+                success: true,
+                deletedComment
             });
         }).catch(err => handleError(err, res))
     } catch (err) {

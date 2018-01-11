@@ -7,7 +7,6 @@ const placeSchema = new mongoose.Schema({
     country: { type: mongoose.Schema.Types.String, required: true },
     city: { type: mongoose.Schema.Types.String, required: true },
     description: { type: mongoose.Schema.Types.String },
-    // author: { type: mongoose.Schema.Types.ObjectId, required: true, ref: 'User' },
     author: { type: mongoose.Schema.Types.String, required: true },
     comments: [{ type: mongoose.Schema.Types.String }],
     likes: { type: mongoose.Schema.Types.Number },

@@ -2,10 +2,10 @@ const mongoose = require('mongoose')
 const encryption = require('../util/encryption')
 
 const userSchema = new mongoose.Schema({
-    userName: {type: mongoose.Schema.Types.String, required: true, unique: [true, 'userName already exists!']},
-    firstName: {type: mongoose.Schema.Types.String},
-    lastName: {type: mongoose.Schema.Types.String},
-    email: {type: mongoose.Schema.Types.String, required: true, unique: [true, 'E-mail already exists!'] },    
+    userName: {type: mongoose.Schema.Types.String, minlength: 4, required: true, unique: [true, 'userName already exists!']},
+    firstName: {type: mongoose.Schema.Types.String,minlength: 4, maxlength: 15, required: true},
+    lastName: {type: mongoose.Schema.Types.String,minlength: 4, maxlength: 15, required: true},
+    email: {type: mongoose.Schema.Types.String, minlength: 8, required: true, unique: [true, 'E-mail already exists!'] },    
     myVisitedPlaces: [{type: mongoose.Schema.Types.ObjectId, ref: "Place"}],
     wishToVisit: [{type: mongoose.Schema.Types.ObjectId, ref: "Place"}],
     hashedPass: {type: mongoose.Schema.Types.String, required: true},

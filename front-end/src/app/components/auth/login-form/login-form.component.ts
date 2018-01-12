@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { LoginModel } from '../models/login.model';
-import { AuthenticationService } from '../../../services/auth.service';
+import { AuthenticationService } from '../../../core/services/auth/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login-form.component.scss']
 })
 export class LoginFormComponent {
-  public model: LoginModel;
+  public model: LoginModel = new LoginModel();
   public loginFail: boolean;
   public username: string;
 
@@ -17,8 +17,6 @@ export class LoginFormComponent {
     private authService: AuthenticationService,
     private router: Router
   ) {
-    this.model = new LoginModel("", "");
-    this.username = "";
   }
 
   login(): void {

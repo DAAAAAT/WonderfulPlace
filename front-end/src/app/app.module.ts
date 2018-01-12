@@ -14,6 +14,7 @@ import {AgmCoreModule} from '@agm/core'
 import {DestinationModule} from './components/destinations/destination.module';
 import {HttpClientService} from './core/services/auth/http-client.service';
 import {TokenService} from './core/services/auth/token.service';
+import {AngularFontAwesomeModule} from "angular-font-awesome";
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {TokenService} from './core/services/auth/token.service';
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyD829mBycxCy4Ws_06Pj3PVw4fij-h_s1o'
     }),
-    DestinationModule
+    DestinationModule,
+    AngularFontAwesomeModule
   ],
   providers: [HttpClientService, TokenService],
   bootstrap: [AppComponent]

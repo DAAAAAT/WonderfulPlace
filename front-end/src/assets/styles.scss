@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800');
 @import url('https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800');
+@import url('../../node_modules/font-awesome/css/font-awesome.css');
 
 $light-green: #0ebc82;
 
@@ -174,6 +175,7 @@ a:hover, button:hover {
     width: 240px;
     line-height: 30px;
     padding-left: 15px;
+    margin-top:7px;
     font-weight: 300;
     font-family: Lato, Helvetica Neue, Arial, sans-serif;
     transition: all 0.30s ease;
@@ -208,7 +210,7 @@ a:hover, button:hover {
   .fa-search {
     cursor: pointer;
     position: relative;
-    top: 8.5px;
+    top: -3.5px;
     right: 32px;
     width: 28px;
     height: 33.5px;

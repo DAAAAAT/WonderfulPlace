@@ -15,7 +15,6 @@ export class AllDestinationsComponent {
   public ngOnInit() {
     this.destinationService.getAllDestinations()
       .subscribe(destinations => {
-        debugger
         this.destinationModel = destinations
       })
   }

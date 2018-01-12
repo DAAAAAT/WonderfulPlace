@@ -5,10 +5,10 @@ const User = require('mongoose').model('User');
 const Destination = require('mongoose').model('Destination');
 
 router.get('/:id', async(req, res, next) => {
-    let id = req.params.id
+    let id = req.params.id;
 
     try {
-        const user = await User.findById(id)
+        const user = await User.findById(id);
         
         res.status(200).json({
             success: true,

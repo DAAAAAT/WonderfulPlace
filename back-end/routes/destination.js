@@ -3,26 +3,37 @@ const router = new express.Router();
 
 const Destination = require('mongoose').model('Destination');
 
-router.get('/getAll', async (req, res, next) => {
+router.get('/', async (req, res, next) => {
     try {
-        Destination.find().then((Destinations) => {
-            res.status(200).json({
-                success: true,
-                Destinations
+        const allDestinations = await Destination.find({});
+        const topDestinations = allDestinations.sort((a, b) => b.rating - a.rating);
+
+        if(!topDestinations) {
+            return res.status(204).json({
+                success: false,
+                message: 'No Destinations available'
             });
-        }).catch(err => handleError(err, res))
+        }
+
+        return res.status(200).json({
+            success: true,
+            topDestinations
+        });
     } catch (err) {
-        handleError(err, res)
+        return res.status(400).json({
+            success: false,
+            message: err.message
+        });
     }
 })
 
-router.get('/getById/:id', async (req, res, next) => {
+router.get('/:id', async (req, res, next) => {
     try {
         let id = req.params.id
-        Destination.findById(id).then((Destination) => {
+        Destination.findById(id).then((destination) => {
             res.status(200).json({
                 success: true,
-                Destinations
+                destination
             });
         }).catch(err => handleError(err, res))
     } catch (err) {

@@ -24,10 +24,9 @@ router.post('/addDestination', async (req, res, next) => {
             description: reqBody.description,
             author: reqBody.author,
             comments: [],
-            likes: 0,
             category: reqBody.categoryId,
             rating: 0
-        }
+        };
 
         Destination.create(DestinationObj).then((Destination) => {
             res.status(200).json({
@@ -38,11 +37,11 @@ router.post('/addDestination', async (req, res, next) => {
     } catch (err) {
         handleError(err, res)
     }
-})
+});
 
 router.delete('/deleteDestination/:id', async (req, res, next) => {
     try {
-        let id = req.params.id
+        let id = req.params.id;
 
         Destination.findByIdAndRemove(id).then((deletedDestination) => {
             res.status(200).json({

@@ -14,7 +14,7 @@ module.exports = (app) => {
     app.use('/profile', authCheck, profileRoutes);
     app.use('/', homeRoutes);
     app.use('/admin',  adminRoutes);
-    app.use('/destination',  destinationRoutes);
+    app.use('/destinations',  destinationRoutes);
     // app.get('/about',roleCheck('Admin'), about.getAbout);
 };
 

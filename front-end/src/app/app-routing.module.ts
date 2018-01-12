@@ -12,10 +12,7 @@ import { AllDestinationsComponent } from './components/destinations/all-destinat
 import { MyDestinationsComponent } from './components/destinations/my-destinations/my-destinations.component';
 import { PublishDestinationComponent } from './components/destinations/publish-destination/publish-destination.component';
 
-
 // Guards
-
-
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -33,4 +30,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
+
 export class AppRoutesModule { }

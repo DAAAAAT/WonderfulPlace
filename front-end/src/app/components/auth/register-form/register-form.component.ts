@@ -10,7 +10,6 @@ import {Router} from '@angular/router';
 })
 export class RegisterFormComponent  {
   public model : RegisterModel;
-  public registeredUser : string;
   public registerSuccess : boolean;
   public registerFail : boolean;
 
@@ -22,23 +21,17 @@ export class RegisterFormComponent  {
   }
 
   register() : void {
-    this.authService.register(this.model)
-      .subscribe(
-        data => {
-          this.successfulRegister(data);
-        },
-        err => {
-          this.registerFail = true;
-        }
-      )
+    this.authService.register(this.model).subscribe(data => {
+      console.log(data);
+      if(data['success']){
+        this.successfulRegister();
+      }else{
+        this.registerFail = true;
+      }
+    })
   }
 
-  get diagnostics() : string {
-    return JSON.stringify(this.model);
-  }
-
-  successfulRegister(data) : void {
-    this.registeredUser = data['username'];
+  successfulRegister() : void {
     this.registerSuccess = true;
     this.router.navigate(['/login']);
   }

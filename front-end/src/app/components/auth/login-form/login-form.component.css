@@ -1,11 +1,10 @@
-.container{
-  width: 40%;
-}
+.container {
+  width: 40%; }
 
 h1 {
-  text-align: center;
-}
+  text-align: center; }
 
-.btn.btn-success{
-  position: center;
-}
+.btn.btn-success {
+  position: center; }
+
+/*# sourceMappingURL=login-form.component.css.map */

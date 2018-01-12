@@ -1,0 +1,371 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800');
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800');
+
+$light-green: #0ebc82;
+
+html {
+  box-sizing: border-box;
+  color: white;
+}
+
+*, :after, :before {
+  box-sizing: inherit;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: Lato, Helvetica Neue, Arial, sans-serif;
+  font-weight: 300;
+  background-color: #e7fff3;
+}
+
+a {
+  display: inline-block;
+}
+
+p {
+  letter-spacing: .25px;
+  line-height: 24px;
+}
+
+img {
+  max-width: 100%;
+}
+
+blockquote {
+  font-style: italic;
+  margin: 1em;
+  margin-left: 3em;
+  display: block;
+  color: #eee !important;
+  letter-spacing: .25px;
+  line-height: 24px;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+h1, h2, h3 {
+  color: #fff;
+  margin: 0;
+}
+
+* {
+  font-weight: 300;
+}
+
+a:hover, button:hover {
+  cursor: pointer;
+}
+
+/*END OF RESET*/
+
+.main-header {
+  background: white;
+  height: 80px;
+  .navbar-main {
+    padding: 10px;
+    height: 80px;
+    max-width: 1270px;
+    margin: 0 auto;
+  }
+}
+
+.nav-ul {
+  li {
+    display: inline-block;
+    list-style-type: none;
+    color: #000000;
+    margin-left: 20px;
+    margin-top: -9px
+  }
+  li:nth-of-type(1) {
+    margin-left: 0;
+  }
+}
+
+//DROP DOWN MENU ---------------------
+
+.select {
+  margin-left: 20px;
+  width: 250px;
+  border-radius: 4px;
+  overflow: hidden;
+  color: #ffffff;
+  float: left;
+  position: absolute;
+  &:hover .option {
+    display: block;
+  }
+}
+
+.collapsed {
+  z-index: 5;
+  &:before {
+    content: '';
+    position: absolute;
+    background-color: #ffffff;
+    width: 14px;
+    height: 14px;
+    -webkit-transform: rotate(45deg);
+    top: 7px;
+    right: 15px;
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    background-color: $light-green;
+    width: 14px;
+    height: 14px;
+    -webkit-transform: rotate(45deg);
+    top: 3px;
+    right: 15px;
+  }
+}
+
+.option, .shown {
+  width: 250px;
+  line-height: 34px;
+  padding-left: 15px;
+  cursor: pointer;
+  background-color: #34495E;
+
+  transition: all 0.3s ease;
+}
+
+.option {
+  display: none;
+  border-bottom: 1px solid #3a5755;
+  &:hover {
+    background: $light-green;
+  }
+}
+
+.shown {
+  background-color: $light-green;
+  font-weight: 400;
+}
+
+//END OF DROP DOWN MENU ---------------------
+
+.left {
+  float: left;
+  .dropdown {
+    margin-top: 9px;
+  }
+}
+
+.right {
+  float: right;
+  &:nth-of-type(3) {
+    margin-top: -13px;
+  }
+  input {
+    color: #000000;
+    font-size: 17px;
+    border-radius: 4px 4px 4px 4px;
+    border: 1px solid $light-green;
+    background: #ffffff;
+    width: 240px;
+    line-height: 30px;
+    padding-left: 15px;
+    font-weight: 300;
+    font-family: Lato, Helvetica Neue, Arial, sans-serif;
+    transition: all 0.30s ease;
+    outline: none;
+    &::placeholder {
+      color: #8d8d8d;
+    }
+    &:focus {
+      box-shadow: 0 0 5px $light-green;
+    }
+  }
+  .btn {
+    color: white;
+    font-size: 17px;
+    border-radius: 4px;
+    border: 1px solid $light-green;
+    background: $light-green;
+    width: 120px;
+    line-height: 30px;
+    margin-top: 12px;
+    margin-left: -20px;
+    font-weight: 400;
+    font-family: Lato, Helvetica Neue, Arial, sans-serif;
+    transition: all 0.30s ease;
+    &:hover {
+      //box-shadow: 0 0 5px $light-green;
+      background: white;
+      color: $light-green;
+    }
+  }
+
+  .fa-search {
+    cursor: pointer;
+    position: relative;
+    top: 8.5px;
+    right: 32px;
+    width: 28px;
+    height: 33.5px;
+    padding: 5px;
+    background: $light-green;
+    color: white;
+    border-radius: 0px 4px 4px 0px;
+    border: 1px solid $light-green;
+  }
+
+  //.fa-user {
+  //  margin-top: 9px;
+  //  height: 20px;
+  //  width: 20px;
+  //  font-weight: 400;
+  //}
+
+}
+
+.logo {
+  width: 90px;
+  margin-top: -10px;
+}
+
+.second-header {
+  background: $light-green;
+  margin-top: -17px;
+  .navbar-second {
+    line-height: 45px;
+    max-width: 1270px;
+    margin: 10px auto 0 auto;
+    position: relative;
+
+    ul {
+      margin-right: 40px;
+      li {
+        list-style-type: none;
+        display: inline-block;
+        margin-left: 15px;
+        a {
+          color: white;
+          text-decoration: none;
+          font-weight: 400;
+          transition: all 0.3s ease;
+          border-bottom: 2px solid transparent;
+          &:hover {
+            border-bottom: 2px solid white;
+          }
+        }
+      }
+    }
+  }
+}
+
+.profile-id {
+  max-width: 1270px;
+  margin: -16px auto 0 auto;
+  height: 75vh;
+  padding-top: 40px;
+  background: white;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  h1 {
+    color: $light-green;
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+    font-size: 34px;
+    font-weight: 400;
+  }
+  hr {
+    max-width: 600px;
+    margin-top: 30px;
+    margin-bottom: -20px;
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(101, 101, 101, 0.75), rgba(0, 0, 0, 0));
+  }
+  .wrapper {
+    clear: both;
+    margin: 100px auto 0 auto;
+    display: flex;
+    justify-content: space-evenly;
+
+    label {
+      font-size: 18px;
+      color: black;
+      font-weight: 500;
+    }
+    input {
+      display: block;
+      color: #000000;
+      font-size: 17px;
+      border-radius: 4px 4px 4px 4px;
+      border: 1px solid $light-green;
+      background: #ffffff;
+      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.24);
+      width: 240px;
+      line-height: 30px;
+      padding-left: 15px;
+      margin: 6px 0 24px 0;
+      font-weight: 300;
+      font-family: Lato, Helvetica Neue, Arial, sans-serif;
+      transition: all 0.30s ease;
+      outline: none;
+      &::placeholder {
+        color: #8d8d8d;
+      }
+      &:focus {
+        box-shadow: 0 0 5px $light-green;
+      }
+    }
+    .left-col {
+      //border: 1px solid red
+    }
+    .right-col {
+
+      img {
+        width: 240px;
+        height: 230px;
+        margin: 15px 0 0px 0;
+        display: block;
+        border-radius: 5px;
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+
+      }
+    }
+  }
+
+  button {
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-size: 17px;
+    border-radius: 4px;
+    border: 1px solid $light-green;
+    background: $light-green;
+    width: 140px;
+    line-height: 40px;
+    margin: 60px auto 0 auto;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 400;
+    transition:background-color 0.30s ease;
+    &:hover {
+      background: white;
+      color: $light-green;
+    }
+  }
+}
+
+
+
+
+
+.ng-valid[required], .ng-valid.required {
+  border-left: 5px solid #00a972;
+}
+
+.ng-invalid:not(form) {
+  border-left: 5px solid #a94442;
+}

@@ -1,0 +1,18 @@
+
+$light-green: #0ebc82;
+
+footer {
+  background: $light-green;
+  position: relative;
+  //bottom: 0;
+  //position: fixed
+  border-top: 2px solid white;
+  .footer {
+    margin: 0 auto;
+    max-width: 1270px;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-weight: 700;
+  }
+}

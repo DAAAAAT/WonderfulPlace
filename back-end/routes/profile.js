@@ -2,7 +2,7 @@ const express = require('express');
 const router = new express.Router();
 
 const User = require('mongoose').model('User');
-const Place = require('mongoose').model('Place');
+const Destination = require('mongoose').model('Destination');
 
 router.get('/:id', async(req, res, next) => {
     let id = req.params.id
@@ -48,12 +48,12 @@ router.get('/:id/wishToVisit' ,async(req, res, next) => {
 
 })
 
-router.get('/:id/myVisitPlace' ,async(req, res, next) => {
+router.get('/:id/myVisitDestination' ,async(req, res, next) => {
     let id = req.params.id
     
     try {
-        const myVisitedPlaces = await User.findById(id).populate('myVisitedPlaces').select('myVisitedPlaces')
-        if (!myVisitedPlaces) {
+        const myVisitedDestinations = await User.findById(id).populate('myVisitedDestinations').select('myVisitedDestinations')
+        if (!myVisitedDestinations) {
             res.status(200).json({
                 success: false,
                 message: 'User no exist.'
@@ -62,7 +62,7 @@ router.get('/:id/myVisitPlace' ,async(req, res, next) => {
         }
         res.status(200).json({
             success: true,
-            myVisitedPlaces
+            myVisitedDestinations
         });
     } catch (error) {
         res.status(200).json({
@@ -75,21 +75,21 @@ router.get('/:id/myVisitPlace' ,async(req, res, next) => {
 
 router.post('/:id/wishToVisit' ,async(req, res, next) => {
     let id = req.params.id
-    let placeId = req.body.placeId
+    let DestinationId = req.body.DestinationId
     try {
-        let place = await Place.findById(placeId)
+        let Destination = await Destination.findById(DestinationId)
         let user = await User.findById(id)
-        if (!place || !user) {
+        if (!Destination || !user) {
             res.status(200).json({
                 success: false,
-                message: 'User or Place not exist'
+                message: 'User or Destination not exist'
             }) 
             return
         }
         await User.findByIdAndUpdate(
             id, {
                 $addToSet: {
-                    "wishToVisit": placeId
+                    "wishToVisit": DestinationId
                 }
             }, {
                 safe: true,
@@ -99,7 +99,7 @@ router.post('/:id/wishToVisit' ,async(req, res, next) => {
         
         res.status(200).json({
             success: true,
-            message: 'Success add wish to visit place.'
+            message: 'Success add wish to visit Destination.'
         });
     } catch (error) {
         res.status(200).json({
@@ -110,24 +110,24 @@ router.post('/:id/wishToVisit' ,async(req, res, next) => {
 
 })
 
-router.post('/:id/myVisitPlace' ,async(req, res, next) => {
+router.post('/:id/myVisitDestination' ,async(req, res, next) => {
     let id = req.params.id
-    let placeId = req.body.placeId
+    let DestinationId = req.body.DestinationId
     try {
-        let place = await Place.findById(placeId)
+        let Destination = await Destination.findById(DestinationId)
         let user = await User.findById(id)
         
-          if (!place || !user) {
+          if (!Destination || !user) {
             res.status(200).json({
                 success: false,
-                message: 'User or Place not exist'
+                message: 'User or Destination not exist'
             }) 
             return
         }        
         await User.findByIdAndUpdate(
             id, {
                 $addToSet: {
-                    "myVisitedPlaces": placeId
+                    "myVisitedDestinations": DestinationId
                 }
             }, {
                 safe: true,
@@ -137,7 +137,7 @@ router.post('/:id/myVisitPlace' ,async(req, res, next) => {
         
         res.status(200).json({
             success: true,
-            message: 'Success add my visited places.'
+            message: 'Success add my visited Destinations.'
         });
     } catch (error) {
         res.status(200).json({

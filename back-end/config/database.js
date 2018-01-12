@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
 const User = require('../models/User')
-const Place = require('../models/Place')
+const Destination = require('../models/Destination')
 const Category = require('../models/Category')
 const Comment = require('../models/Comment')
 

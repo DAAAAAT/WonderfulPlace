@@ -1,23 +1,24 @@
 const express = require('express');
 const router = new express.Router();
 
-const Place = require('mongoose').model('Place');
+const Destination = require('mongoose').model('Destination');
 
 router.get('/', async (req, res) => {
     try {
-        const allPlaces = await Place.find({});
-        const topPlaces = allPlaces.sort((a, b) => b.likes - a.likes).slice(0, 4);
+        const allDestinations = await Destination.find({});
+        console.log(allDestinations);
+        const topDestinations = allDestinations.sort((a, b) => b.rating - a.rating).slice(0, 4);
 
-        if(!topPlaces) {
+        if(!topDestinations) {
            return res.status(204).json({
                 success: false,
-                message: 'No places available'
+                message: 'No Destinations available'
             });
         }
 
         return res.status(200).json({
             success: true,
-            topPlaces
+            topDestinations
         });
     } catch (err) {
         return res.status(400).json({

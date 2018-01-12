@@ -1,14 +1,14 @@
 const express = require('express');
 const router = new express.Router();
 
-const Place = require('mongoose').model('Place');
+const Destination = require('mongoose').model('Destination');
 
 router.get('/getAll', async (req, res, next) => {
     try {
-        Place.find().then((places) => {
+        Destination.find().then((Destinations) => {
             res.status(200).json({
                 success: true,
-                places
+                Destinations
             });
         }).catch(err => handleError(err, res))
     } catch (err) {
@@ -19,10 +19,10 @@ router.get('/getAll', async (req, res, next) => {
 router.get('/getById/:id', async (req, res, next) => {
     try {
         let id = req.params.id
-        Place.findById(id).then((place) => {
+        Destination.findById(id).then((Destination) => {
             res.status(200).json({
                 success: true,
-                places
+                Destinations
             });
         }).catch(err => handleError(err, res))
     } catch (err) {

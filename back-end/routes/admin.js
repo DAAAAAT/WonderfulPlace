@@ -1,7 +1,7 @@
 const express = require('express');
 const router = new express.Router();
 
-const Place = require('mongoose').model('Place');
+const Destination = require('mongoose').model('Destination');
 const Category = require('mongoose').model('Category');
 const User = require('mongoose').model('User');
 const Comment = require('mongoose').model('Comment');
@@ -14,7 +14,7 @@ router.post('/addDestination', async (req, res, next) => {
 
         let imagesArray = reqBody.images.split(",");
 
-        let placeObj = {
+        let DestinationObj = {
             name: reqBody.name,
             images: imagesArray,
             latitude: +reqBody.lat,
@@ -29,10 +29,10 @@ router.post('/addDestination', async (req, res, next) => {
             rating: 0
         }
 
-        Place.create(placeObj).then((place) => {
+        Destination.create(DestinationObj).then((Destination) => {
             res.status(200).json({
                 success: true,
-                message: 'Successfully added place'
+                message: 'Successfully added Destination'
             })
         }).catch(err => handleError(err, res))
     } catch (err) {
@@ -44,10 +44,10 @@ router.delete('/deleteDestination/:id', async (req, res, next) => {
     try {
         let id = req.params.id
 
-        Place.findByIdAndRemove(id).then((deletedPlace) => {
+        Destination.findByIdAndRemove(id).then((deletedDestination) => {
             res.status(200).json({
                 success: true,
-                deletedPlace
+                deletedDestination
             });
         }).catch(err => handleError(err, res))
     } catch (err) {

@@ -35,6 +35,8 @@ User.seedAdminUser = async () => {
         const hashedPass = encryption.generateHashedPassword(salt, 'Admin')      
         return User.create({
             userName: 'Admin',
+			firstName:'Alex',
+			lastName: 'Alex',
             salt,
             hashedPass,
             email: 'admin@admin.bg',

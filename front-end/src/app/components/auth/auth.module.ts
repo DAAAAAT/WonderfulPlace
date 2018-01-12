@@ -8,7 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 // Services
-import { AuthenticationService } from '../../services/auth.service';
+import { AuthenticationService } from '../../core/services/auth/auth.service';
 
 @NgModule({
   declarations: [

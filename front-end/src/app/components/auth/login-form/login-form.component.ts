@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login-form.component.css']
 })
 export class LoginFormComponent {
-  public model: LoginModel;
+  public model: LoginModel = new LoginModel();
   public loginFail: boolean;
   public username: string;
 
@@ -17,8 +17,6 @@ export class LoginFormComponent {
     private authService: AuthenticationService,
     private router: Router
   ) {
-    this.model = new LoginModel("", "");
-    this.username = "";
   }
 
   login(): void {

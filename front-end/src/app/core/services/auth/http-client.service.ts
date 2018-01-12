@@ -1,9 +1,10 @@
-import {Injectable} from '@angular/core'
-import {HttpClient, HttpHeaders} from '@angular/common/http'
-import {catchError} from 'rxjs/operators'
-import {Observable} from 'rxjs/Observable'
-import {environment} from '../../../../environments/environment';
-import {TokenService} from './token.service';
+import { Injectable } from '@angular/core'
+import { HttpClient, HttpHeaders } from '@angular/common/http'
+import { catchError } from 'rxjs/operators'
+import { Observable } from 'rxjs/Observable'
+import { environment } from '../../../../environments/environment';
+import { TokenService } from './token.service';
+import { LoginModel } from '../../../components/auth/models/login.model';
 
 @Injectable()
 
@@ -14,16 +15,16 @@ export class HttpClientService {
     })
 
   constructor(private http: HttpClient,
-              private tokenService: TokenService) {
+    private tokenService: TokenService) {
   }
 
   public get<T>(url: string) {
     this.setHeaders()
 
     return this.http
-      .get<T>(environment.apiUrl + url, {headers: this.headers})
+      .get<T>(environment.apiUrl + url, { headers: this.headers })
       .pipe(
-        catchError(err => this.handleError(err))
+      catchError(err => this.handleError(err))
       )
   }
 
@@ -31,9 +32,9 @@ export class HttpClientService {
     this.setHeaders()
 
     return this.http
-      .post<T>(`${environment.apiUrl + url}`, data, {headers: this.headers})
+      .post<T>(`${environment.apiUrl + url}`, data, { headers: this.headers })
       .pipe(
-        catchError(err => this.handleError(err))
+      catchError(err => this.handleError(err))
       )
   }
 
@@ -41,9 +42,9 @@ export class HttpClientService {
     this.setHeaders()
 
     return this.http
-      .put<T>(`${environment.apiUrl + url}`, data, {headers: this.headers})
+      .put<T>(`${environment.apiUrl + url}`, data, { headers: this.headers })
       .pipe(
-        catchError(err => this.handleError(err))
+      catchError(err => this.handleError(err))
       )
   }
 
@@ -51,22 +52,22 @@ export class HttpClientService {
     this.setHeaders()
 
     return this.http
-      .delete(`${environment.apiUrl + url}/${id}`, {headers: this.headers})
+      .delete(`${environment.apiUrl + url}/${id}`, { headers: this.headers })
       .pipe(
-        catchError(err => this.handleError(err))
+      catchError(err => this.handleError(err))
       )
   }
 
-  public login(username: string, password: string) {
-    const body = JSON.stringify({username, password})
+  public login(loginModel: LoginModel) {
+    const body = JSON.stringify(loginModel)
 
     let headers = new HttpHeaders({
-      'Content-Type': 'application/x-www-form-urlencoded',
+      'Content-Type': 'application/json',
       'Accept': 'application/x-www-form-urlencoded',
     })
 
     return this.http
-      .post(environment.apiUrl, body, {headers: headers})
+      .post(environment.apiUrl + "login", body, { headers: headers })
       .pipe(catchError(err => this.handleError(err)))
   }
 
@@ -97,11 +98,10 @@ export class HttpClientService {
   }
 
   private setHeaders() {
-    debugger
     let token: string = this.tokenService.getToken()
 
     if (token) {
-      let authorization = {Authorization: `Bearer ${token}`}
+      let authorization = { Authorization: `bearer ${token}` }
 
       Object.keys(authorization)
         .forEach(header => this.headers.set(header, authorization[header]))

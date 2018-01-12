@@ -1,9 +1,9 @@
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 
 // Models
-import {RegisterModel} from '../../../components/auth/models/register.model';
-import {LoginModel} from '../../../components/auth/models/login.model';
-import {HttpClientService} from './http-client.service';
+import { RegisterModel } from '../../../components/auth/models/register.model';
+import { LoginModel } from '../../../components/auth/models/login.model';
+import { HttpClientService } from './http-client.service';
 
 @Injectable()
 
@@ -15,11 +15,11 @@ export class AuthenticationService {
   }
 
   public login(loginModel: LoginModel) {
-    return this.http.login(loginModel.userName, loginModel.password)
+    return this.http.login(loginModel)
   }
 
   public register(registerModel: RegisterModel) {
-    return this.http.post('/register', registerModel)
+    return this.http.post('register', registerModel)
   }
 
   public logout() {

@@ -51,4 +51,8 @@ export class AuthenticationService {
 
     this.router.navigate(['/home'])
   }
+
+  public getUsername(): string {
+    return localStorage.getItem('username')
+  }
 }

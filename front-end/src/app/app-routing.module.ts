@@ -12,6 +12,7 @@ import { WishListComponent } from './components/wish-list/wish-list.component';
 import { AllDestinationsComponent } from './components/destinations/all-destinations/all-destinations.component';
 import { MyDestinationsComponent } from './components/destinations/my-destinations/my-destinations.component';
 import { PublishDestinationComponent } from './components/destinations/publish-destination/publish-destination.component';
+import { CreateCategoryComponent } from './components/categories/create-category/create-category.component';
 
 // Guards
 
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'publish', component: PublishDestinationComponent },
   { path: 'myDestinations', component: MyDestinationsComponent },
   { path: 'allDestinations', component: AllDestinationsComponent },
+  { path: 'addCategory', component: CreateCategoryComponent },
   { path: 'wishList', component: WishListComponent },
   { path: 'register', component: RegisterFormComponent },
   { path: 'profile', component: ProfileComponent },

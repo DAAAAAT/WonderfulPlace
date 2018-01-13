@@ -1,7 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import {ReactiveFormsModule,  FormsModule} from '@angular/forms';
 import {AuthenticationModule} from './components/auth/auth.module';
 import {HomeComponent} from './components/home/home.component';
 import {AppRoutesModule} from './app-routing.module';
@@ -16,6 +16,7 @@ import {HttpClientService} from './core/services/auth/http-client.service';
 import {TokenService} from './core/services/auth/token.service';
 import {AngularFontAwesomeModule} from "angular-font-awesome";
 import { ProfileComponent } from './components/profile/profile.component';
+import {CreateCategoryComponent} from './components/categories/create-category/create-category.component';
 
 @NgModule({
   declarations: [
@@ -25,10 +26,12 @@ import { ProfileComponent } from './components/profile/profile.component';
     FooterComponent,
     WishListComponent,
     ProfileComponent,
+    CreateCategoryComponent
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
+    FormsModule,
     AuthenticationModule,
     AppRoutesModule,
     AgmCoreModule.forRoot({

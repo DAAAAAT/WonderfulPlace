@@ -12,7 +12,7 @@ export class HttpClientService {
   private headers: HttpHeaders = new HttpHeaders(
     {
       'Content-Type': 'application/json'
-    })
+    });
 
   constructor(private http: HttpClient,
     private tokenService: TokenService) {
@@ -106,7 +106,7 @@ export class HttpClientService {
          "Authorization" : `bearer ${token}`,
         'Content-Type': 'application/json'
       });
-      return authHeaders
+      return authHeaders;
     }else {
       return this.headers;
     }

@@ -7,5 +7,6 @@ export const environment = {
   production: false,
   apiUrl: 'http://localhost:5000/',
   appUrl: 'http://localhost:4200/',
-  token: "authtoken"
+  token: 'authtoken',
+  googleApiKey: 'AIzaSyD829mBycxCy4Ws_06Pj3PVw4fij-h_s1o'
 };

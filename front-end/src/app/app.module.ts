@@ -18,13 +18,14 @@ import { ProfileComponent } from './components/profile/profile.component';
 import {AgmCoreModule} from '@agm/core'
 import {GuardsModule} from './core/guards/guards.module';
 import {RouterModule} from '@angular/router';
+import {environment} from '../environments/environment';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     WishListComponent,
-	ProfileComponent
+	  ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +33,7 @@ import {RouterModule} from '@angular/router';
     AuthenticationModule,
     RouterModule.forRoot(routes),
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyD829mBycxCy4Ws_06Pj3PVw4fij-h_s1o'
+      apiKey: environment.googleApiKey
     }),
     DestinationModule,
     SharedModule,

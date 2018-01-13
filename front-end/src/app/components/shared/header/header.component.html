@@ -49,16 +49,16 @@
   <header class="second-header">
     <nav class="navbar-second">
       <ul>
-        <li><a routerLink="/publish">Publish Destination</a></li>
-        <li><a routerLink="/wishList">Wish to Visit List</a></li>
-        <li><a href="#">Been There List</a></li>
-        <li><a routerLink="/allDestinations">All Destinations</a></li>
+        <li *ngIf="authService.isLoggedIn()">><a routerLink="/publish">Publish Destination</a></li>
+        <li *ngIf="authService.isLoggedIn()">><a routerLink="/wishList">Wish to Visit List</a></li>
+        <li *ngIf="authService.isLoggedIn()">><a href="#">Been There List</a></li>
+        <li *ngIf="authService.isLoggedIn()">><a routerLink="/allDestinations">All Destinations</a></li>
 
-        <li class="right"><a href="#">Log Out</a></li>
-        <li class="right"><a routerLink="/profile">Rizzle</a></li>
-        <li class="right"><a routerLink="/myDestinations">My Destinations</a></li>
-        <li class="right"><a routerLink="/register">Register</a></li>
-        <li class="right"><a routerLink="/login">Login</a></li>
+        <li *ngIf="authService.isLoggedIn()" class="right"><a href="#">Log Out</a></li>
+        <li *ngIf="authService.isLoggedIn()" class="right"><a routerLink="/profile">Rizzle</a></li>
+        <li *ngIf="authService.isLoggedIn()" class="right"><a routerLink="/myDestinations">My Destinations</a></li>
+        <li *ngIf="!authService.isLoggedIn()" class="right"><a routerLink="/register">Register</a></li>
+        <li *ngIf="!authService.isLoggedIn()" class="right"><a routerLink="/login">Login</a></li>
       </ul>
     </nav>
   </header>

@@ -1,7 +1,7 @@
 .auth-form {
   max-width: 770px;
   margin: -16px auto 0 auto;
-  height: 58vh;
+  height: auto;
   padding-top: 40px;
   background: white;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24); }
@@ -23,7 +23,7 @@
       background: #0ebc82;
       width: 140px;
       line-height: 35px;
-      margin: 60px auto 0 auto;
+      margin: 60px auto 40px auto;
       text-align: center;
       text-decoration: none;
       font-weight: 400;

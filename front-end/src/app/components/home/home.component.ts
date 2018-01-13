@@ -3,7 +3,7 @@ import { MouseEvent } from '@agm/core';
 
 @Component({
   templateUrl: './home.components.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
   // google maps zoom level
@@ -14,15 +14,15 @@ export class HomeComponent implements OnInit {
   lng: number = 7.815982;
   constructor() {
   }
-  ngOnInit() {
-debugger
+
+  public ngOnInit() {
   }
 
-  clickedMarker(label: string, index: number) {
+ public clickedMarker(label: string, index: number) {
     console.log(`clicked the marker: ${label || index}`)
   }
 
-  mapClicked($event: MouseEvent) {
+  public mapClicked($event: MouseEvent) {
     this.markers.push({
       lat: $event.coords.lat,
       lng: $event.coords.lng,
@@ -30,7 +30,7 @@ debugger
     });
   }
 
-  markerDragEnd(m: marker, $event: MouseEvent) {
+  public markerDragEnd(m: marker, $event: MouseEvent) {
     console.log('dragEnd', m, $event);
   }
 

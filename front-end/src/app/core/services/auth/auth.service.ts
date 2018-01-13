@@ -9,7 +9,8 @@ import { HttpClientService } from './http-client.service';
 
 export class AuthenticationService {
   private currentAuthToken: string;
-  private currRole: string;
+  public currRole: string;
+  public redirectUrl: string = ''
 
   constructor(private http: HttpClientService) {
   }

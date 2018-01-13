@@ -25,10 +25,9 @@ export class HeaderComponent implements OnInit {
     })
   }
 
-  onSelect(val) {
+  public onSelect(val) {
     console.log(val)
   }
-
 
   public logOut(): void {
     this.authService.logOut()

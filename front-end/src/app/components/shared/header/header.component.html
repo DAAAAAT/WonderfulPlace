@@ -1,34 +1,31 @@
 <!--<nav class="navbar navbar-expand-lg navbar-light bg-light">-->
-  <!--<div *ngIf="!authService.isLoggedIn()">-->
-    <!--<a routerLink="/login" class="navbar-brand active">Login</a>-->
-    <!--<a routerLink="/register" class="navbar-brand active">Register</a>-->
-  <!--</div>-->
-  <!--<div *ngIf="authService.isLoggedIn()">-->
-    <!--<a routerLink="/publish" class="navbar-brand">Publish Destination</a>-->
-    <!--<a routerLink="/wishList" class="navbar-brand">Wish To Visit List</a>-->
-    <!--<a routerLink="/allDestinations" class="navbar-brand">All Destinations</a>-->
-    <!--<a routerLink="/myDestinations" class="navbar-brand">My Destinations</a>-->
-    <!--<a routerLink="/logout" class="navbar-brand">Logout</a>-->
-  <!--</div>-->
+<!--<div *ngIf="!authService.isLoggedIn()">-->
+<!--<a routerLink="/login" class="navbar-brand active">Login</a>-->
+<!--<a routerLink="/register" class="navbar-brand active">Register</a>-->
+<!--</div>-->
+<!--<div *ngIf="authService.isLoggedIn()">-->
+<!--<a routerLink="/publish" class="navbar-brand">Publish Destination</a>-->
+<!--<a routerLink="/wishList" class="navbar-brand">Wish To Visit List</a>-->
+<!--<a routerLink="/allDestinations" class="navbar-brand">All Destinations</a>-->
+<!--<a routerLink="/myDestinations" class="navbar-brand">My Destinations</a>-->
+<!--<a routerLink="/logout" class="navbar-brand">Logout</a>-->
+<!--</div>-->
 <!--</nav>-->
-
 <div>
   <header class="main-header">
     <nav class="navbar-main">
       <ul class="nav-ul">
         <li class="left logo">
-          <img
-            routerLink="/home"
-          src="https://www.freelogoservices.com/api/main/images/1j+ojl1FOMkX9WypfBe43D6kjfGHpR9PmxjJwXs1M3EMoAJtlSEogfNq8fw8"
-          alt="logo"></li>
+          <img routerLink="/home" src="https://www.freelogoservices.com/api/main/images/1j+ojl1FOMkX9WypfBe43D6kjfGHpR9PmxjJwXs1M3EMoAJtlSEogfNq8fw8"
+            alt="logo">
+        </li>
 
         <li class="left">
           <div class="dropdown">
             <div class="select collapsed">
-              <div class="shown">Select Region</div>
-              <div class="option">South</div>
-              <div class="option">North</div>
-              <div class="option">West</div>
+              <select  name="categoryId">
+                <option *ngFor="let cat of allCategory" [value]="cat._id">{{cat.title}}</option>
+              </select>
             </div>
           </div>
         </li>
@@ -49,16 +46,34 @@
   <header class="second-header">
     <nav class="navbar-second">
       <ul>
-        <li *ngIf="authService.isLoggedIn()">><a routerLink="/publish">Publish Destination</a></li>
-        <li *ngIf="authService.isLoggedIn()">><a routerLink="/wishList">Wish to Visit List</a></li>
-        <li *ngIf="authService.isLoggedIn()">><a href="#">Been There List</a></li>
-        <li *ngIf="authService.isLoggedIn()">><a routerLink="/allDestinations">All Destinations</a></li>
+        <li *ngIf="isLogged">
+          <a  routerLink="/publish">Publish Destination</a>
+        </li>
+        <li *ngIf="isLogged">
+          <a routerLink="/wishList">Wish to Visit List</a>
+        </li>
+        <li  *ngIf="isLogged">
+          <a href="#">Been There List</a>
+        </li>
+        <li>
+          <a routerLink="/allDestinations">All Destinations</a>
+        </li>
 
-        <li *ngIf="authService.isLoggedIn()" class="right"><a href="#">Log Out</a></li>
-        <li *ngIf="authService.isLoggedIn()" class="right"><a routerLink="/profile">Rizzle</a></li>
-        <li *ngIf="authService.isLoggedIn()" class="right"><a routerLink="/myDestinations">My Destinations</a></li>
-        <li *ngIf="!authService.isLoggedIn()" class="right"><a routerLink="/register">Register</a></li>
-        <li *ngIf="!authService.isLoggedIn()" class="right"><a routerLink="/login">Login</a></li>
+        <li  *ngIf="isLogged" class="right">
+          <a href="#">Log Out</a>
+        </li>
+        <li  *ngIf="isLogged" class="right">
+          <a routerLink="/profile">Rizzle</a>
+        </li>
+        <li  *ngIf="isLogged" class="right">
+          <a routerLink="/myDestinations">My Destinations</a>
+        </li>
+        <li  *ngIf="!isLogged" class="right">
+          <a routerLink="/register">Register</a>
+        </li>
+        <li *ngIf="!isLogged" class="right">
+          <a routerLink="/login">Login</a>
+        </li>
       </ul>
     </nav>
   </header>

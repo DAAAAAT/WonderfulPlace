@@ -73,7 +73,43 @@ router.post('/:id/addComment', async (req, res) => {
 
         return res.status(201).json({
             success: true,
-            message: 'Comment created successfully'
+            message: 'Comment created successfully',
+            currentComment
+        });
+    } catch (e) {
+        return res.status(400).json({
+            success: false,
+            message: e.message
+        })
+    }
+})
+
+router.put('/:id/editComment/:commentId', async (req, res) => {
+    try {
+        let id = req.params.id;
+        let commentId = req.params.commentId;
+        let comment = req.body;
+
+        let currenetDestination = await Destination.findById(id);
+        let updatedComment = await Comment.findByIdAndUpdate(commentId, comment);
+
+        if(!currenetDestination) {
+            return res.status(204).json({
+                success: false,
+                message: 'Invalid destination'
+            })
+        }
+        if(!updatedComment) {
+            return res.status(204).json({
+                success: false,
+                message: 'Couldn\'t update comment'
+            })
+        }
+
+        return res.status(200).json({
+            success: true,
+            message: 'Updated created successfully',
+            updatedComment
         });
     } catch (e) {
         return res.status(400).json({

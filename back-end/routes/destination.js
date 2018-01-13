@@ -10,7 +10,7 @@ router.get('/getByCategory/:id', async (req, res, next) => {
     try {
         let categoryId = req.params.id;
 
-        let destinations = await Destination.find({ "category": categoryId});
+        let destinations = await Destination.find({ "category": categoryId });
 
         destinations = destinations.sort((a, b) => b.rating - a.rating);
 

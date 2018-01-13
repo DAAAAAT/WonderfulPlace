@@ -5,6 +5,7 @@ const User = require('../models/User')
 const Destination = require('../models/Destination')
 const Category = require('../models/Category')
 const Comment = require('../models/Comment')
+const Rate = require('../models/Rate')
 
 module.exports = (config) => {
     mongoose.connect(config.dbPath, {

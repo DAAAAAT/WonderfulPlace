@@ -1,31 +1,36 @@
 const express = require('express');
 const router = new express.Router();
+const jwt = require('jsonwebtoken');
 
 const Destination = require('mongoose').model('Destination');
 const Category = require('mongoose').model('Category');
 const User = require('mongoose').model('User');
 const Comment = require('mongoose').model('Comment');
 
-
-
 router.post('/addDestination', async (req, res, next) => {
     try {
         let reqBody = req.body;
 
-        let imagesArray = reqBody.images.split(",");
+        // let imagesArray = reqBody.images.split(",");
+
+        let token = req.headers.authorization.split(' ')[1];
+        let decoded = await jwt.verify(token, 's0m3 r4nd0m str1ng');
+        let currentUserId = decoded.sub;
 
         let DestinationObj = {
             name: reqBody.name,
-            images: imagesArray,
+            image: reqBody.image,
             latitude: +reqBody.lat,
             longitude: +reqBody.lng,
             country: reqBody.country,
             city: reqBody.city,
             description: reqBody.description,
-            author: reqBody.author,
+            author: currentUserId,
             comments: [],
             category: reqBody.categoryId,
-            rating: 0
+            ratings: [],
+            averageRating: 0,
+            ratingSum: 0
         };
 
         Destination.create(DestinationObj).then((Destination) => {

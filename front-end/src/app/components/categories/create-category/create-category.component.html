@@ -1,0 +1,29 @@
+
+
+<div class="container">
+  <h1>Create Category</h1>
+
+  <form (ngSubmit)="createCategory()" #categoryForm="ngForm">
+    <div class="form-group">
+      <label for="title">Name</label>
+      <input type="text" class="form-control" id="title"
+             required
+             minlength="4"
+             [(ngModel)]="categoryModel.title"
+             name="title"
+             #title="ngModel">
+      <div [hidden]="title.valid || title.pristine" class="alert alert-danger">
+        Name of category is required and must have at least 4 characters.
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-success">Create</button>
+  </form>
+
+  <div *ngIf="addCategorySuccess" class="alert alert-success">
+    Successful create category!
+  </div>
+  <div *ngIf="addCategoryFail " class="alert alert-danger">
+    {{failMessage}}
+  </div>
+</div>

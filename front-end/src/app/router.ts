@@ -11,10 +11,10 @@ import {LoginFormGuard, AdminGuard, AuthGuard} from './core/guards';
 export const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
-  {path: 'publish', component: PublishDestinationComponent},
-  {path: 'myDestinations', component: MyDestinationsComponent,},
+  {path: 'publish', component: PublishDestinationComponent, canActivate: [AdminGuard]},
+  {path: 'myDestinations', component: MyDestinationsComponent, canActivate: [AuthGuard]},
   {path: 'allDestinations', component: AllDestinationsComponent},
-  {path: 'wishList', component: WishListComponent,},
+  {path: 'wishList', component: WishListComponent, canActivate: [AuthGuard]},
   {path: 'register', component: RegisterFormComponent},
-  {path: 'login', component: LoginFormComponent, }
+  {path: 'login', component: LoginFormComponent, canActivate: [LoginFormGuard]}
 ]

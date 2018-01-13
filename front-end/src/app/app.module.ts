@@ -1,7 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import {ReactiveFormsModule,  FormsModule} from '@angular/forms';
 import {AuthenticationModule} from './components/auth/auth.module';
 import {HomeComponent} from './components/home/home.component';
 import {routes} from './router';
@@ -13,6 +13,7 @@ import {TokenService} from './core/services/auth/token.service';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {AngularFontAwesomeModule} from "angular-font-awesome";
 import { ProfileComponent } from './components/profile/profile.component';
+import {CreateCategoryComponent} from './components/categories/create-category/create-category.component';
 
 //Google Maps module
 import {AgmCoreModule} from '@agm/core'
@@ -25,11 +26,13 @@ import {environment} from '../environments/environment';
     AppComponent,
     HomeComponent,
     WishListComponent,
-	  ProfileComponent
+    ProfileComponent,
+    CreateCategoryComponent
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
+    FormsModule,
     AuthenticationModule,
     RouterModule.forRoot(routes),
     AgmCoreModule.forRoot({

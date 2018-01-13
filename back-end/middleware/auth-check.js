@@ -16,6 +16,7 @@ module.exports = async (req, res, next) =>  {
         if (err) { return res.status(401).end(); }
 
         const userId = decoded.sub;
+
         const user = await User.findById(userId);
         if (!user) {
             return res.status(401).end();

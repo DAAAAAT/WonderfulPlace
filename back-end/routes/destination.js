@@ -1,5 +1,6 @@
 const express = require('express');
 const router = new express.Router();
+const jwt = require('jsonwebtoken');
 
 const Destination = require('mongoose').model('Destination');
 const Comment = require('mongoose').model('Comment');
@@ -26,11 +27,15 @@ router.get('/', async (req, res, next) => {
             message: err.message
         });
     }
-})
+});
 
-router.get('/:id', (req, res, next) => {
+router.get('/:id', async (req, res, next) => {
     try {
-        let id = req.params.id
+        let id = req.params.id;
+        let token = req.headers.authorization.split(' ')[1];
+        let decoded = await jwt.verify(token, 's0m3 r4nd0m str1ng');
+        let userId = decoded.sub;
+
         Destination.findById(id).then((destination) => {
             return res.status(200).json({
                 success: true,
@@ -46,13 +51,13 @@ router.post('/:id/addComment', async (req, res) => {
     try {
         let id = req.params.id;
 
-        let currenetDestination = await Destination.findById(id);
+        let currentDestination = await Destination.findById(id);
         let currentComment = await Comment.create(req.body);
-        currenetDestination.comments.push(currentComment._id);
+        currentDestination.comments.push(currentComment._id);
 
         let updatedDestination = await Destination.findByIdAndUpdate(id, currenetDestination);
 
-        if(!currenetDestination) {
+        if(!currentDestination) {
             return res.status(204).json({
                 success: false,
                 message: 'Invalid destination'
@@ -90,10 +95,10 @@ router.put('/:id/editComment/:commentId', async (req, res) => {
         let commentId = req.params.commentId;
         let comment = req.body;
 
-        let currenetDestination = await Destination.findById(id);
+        let currentDestination = await Destination.findById(id);
         let updatedComment = await Comment.findByIdAndUpdate(commentId, comment);
 
-        if(!currenetDestination) {
+        if(!currentDestination) {
             return res.status(204).json({
                 success: false,
                 message: 'Invalid destination'
@@ -108,7 +113,7 @@ router.put('/:id/editComment/:commentId', async (req, res) => {
 
         return res.status(200).json({
             success: true,
-            message: 'Updated created successfully',
+            message: 'Updated comment successfully',
             updatedComment
         });
     } catch (e) {
@@ -117,7 +122,13 @@ router.put('/:id/editComment/:commentId', async (req, res) => {
             message: e.message
         })
     }
-})
+});
+
+router.post(':id/addToWishedList', async (req, res) => {
+    let id = req.params.id;
+
+
+});
 
 function handleError(error, res) {
     res.status(200).json({
@@ -125,4 +136,5 @@ function handleError(error, res) {
         message: error.message
     })
 }
+
 module.exports = router;

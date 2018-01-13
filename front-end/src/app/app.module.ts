@@ -15,6 +15,7 @@ import {DestinationModule} from './components/destinations/destination.module';
 import {HttpClientService} from './core/services/auth/http-client.service';
 import {TokenService} from './core/services/auth/token.service';
 import {AngularFontAwesomeModule} from "angular-font-awesome";
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import {AngularFontAwesomeModule} from "angular-font-awesome";
     HeaderComponent,
     FooterComponent,
     WishListComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,

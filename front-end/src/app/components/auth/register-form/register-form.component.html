@@ -1,85 +1,85 @@
+<div class="auth-form">
+  <div class="wrapper-form">
 
-<div class="container">
-  <h1>Register</h1>
+    <h1>Register</h1>
+    <hr>
 
-  <form (ngSubmit)="register()" #registerForm="ngForm">
-    <div class="form-group">
-      <label for="userName">Username</label>
-      <input type="text" class="form-control" id="userName"
-             required
-             minlength="4"
-             [(ngModel)]="model.userName"
-             name="userName"
-             #userName="ngModel">
-      <div [hidden]="userName.valid || userName.pristine" class="alert alert-danger">
-        Username is required!Username must have at least 4 characters.
+
+    <form (ngSubmit)="register()" #registerForm="ngForm">
+
+      <div class="form-wrapper">
+        <div class="left-col">
+          <label for="userName">Username</label>
+          <input type="text" id="userName"
+                 required
+                 [(ngModel)]="model.userName"
+                 name="userName"
+                 #userName="ngModel">
+          <div [hidden]="userName.valid || userName.pristine" class="alert">
+            Username is required!
+          </div>
+
+          <label for="firstName">First Name</label>
+          <input type="text" class="form-control" id="firstName"
+                 required
+                 [(ngModel)]="model.firstName"
+                 name="firstName"
+                 #firstName="ngModel">
+          <!--<div [hidden]="firstName.valid || firstName.pristine" class="alert">-->
+          <!--FirstName is required!-->
+          <!--</div>-->
+
+          <label for="lastName">Last Name</label>
+          <input type="text" class="form-control" id="lastName"
+                 required
+                 [(ngModel)]="model.lastName"
+                 name="lastName"
+                 #lastName="ngModel">
+          <!--<div [hidden]="lastName.valid || lastName.pristine" class="alert">-->
+          <!--FirstName is required!-->
+          <!--</div>-->
+        </div>
+
+        <div class="right-col">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" id="password"
+                 required
+                 [(ngModel)]="model.password"
+                 name="password"
+                 #password="ngModel">
+          <div [hidden]="password.valid || password.pristine" class="alert">
+            Password is required!
+          </div>
+
+          <label for="repeat">Confirm Password</label>
+          <input type="password" class="form-control" id="repeat"
+                 required
+                 [(ngModel)]="model.password"
+                 name="repeat">
+          <div [hidden]="password.valid || password.pristine" class="alert">
+            Passwords does not match!
+          </div>
+
+
+          <label for="email">Email</label>
+          <input type="email" class="form-control" id="email"
+                 required
+                 [(ngModel)]="model.email"
+                 name="email"
+                 #email="ngModel">
+          <div [hidden]="email.valid || email.pristine" class="alert">
+            Email is required!
+          </div>
+        </div>
       </div>
-      <div [hidden]="userName.valid || userName.pristine" class="alert alert-danger">
-        Username is required and must have at least 4 characters.
-      </div>
+
+      <button [disabled]="!registerForm.form.valid" type="submit" class="btn btn-success">Submit</button><br>
+
+
+    </form>
+    <div *ngIf="registerFail" class="alert">
+      Failed Login!
     </div>
 
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input type="password" class="form-control" id="password"
-             required
-             minlength="4"
-             [(ngModel)]="model.password"
-             name="password"
-             #password="ngModel">
-      <div [hidden]="password.valid || password.pristine" class="alert alert-danger">
-        Password is required and must have at least 4 characters.
-      </div>
-    </div>
-
-    <div class="form-group">
-      <label for="firstName">First Name</label>
-      <input type="text" class="form-control" id="firstName"
-             required
-             minlength="4"
-             maxlength="15"
-             [(ngModel)]="model.firstName"
-             name="firstName"
-             #firstName="ngModel">
-      <div [hidden]="firstName.valid || firstName.pristine" class="alert alert-danger">
-        First Name is required and must be between 4 and 15 symbols.
-      </div>
-    </div>
-
-    <div class="form-group">
-      <label for="lastName">Last Name</label>
-      <input type="text" class="form-control" id="lastName"
-             required
-             minlength="4"
-             maxlength="15"
-             [(ngModel)]="model.lastName"
-             name="lastName"
-             #lastName="ngModel">
-      <div [hidden]="lastName.valid || lastName.pristine" class="alert alert-danger">
-        Last Name is required and must be between 4 and 15 symbols.
-      </div>
-    </div>
-
-    <div class="form-group">
-      <label for="email">Email </label>
-      <input type="text" class="form-control" id="email"
-             required
-             minlength="8"
-             [(ngModel)]="model.email"
-             name="email"
-             #email="ngModel">
-      <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
-        Email is required and must have at least 8 symbols.
-      </div>
-    </div>
-
-    <button [disabled]="!registerForm.form.valid" type="submit" class="btn btn-success">Submit</button>
-  </form>
-
-  <div *ngIf="registerSuccess" class="alert alert-success">
-    Successful Registered !
-  </div>
-  <div *ngIf="registerFail" class="alert alert-danger">
-    Fail register!
   </div>
 </div>

@@ -1,0 +1,16 @@
+footer {
+  background: #0ebc82;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-top: 2px solid white; }
+  footer .footer {
+    margin: 0 auto;
+    max-width: 1270px;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-weight: 700; }
+
+/*# sourceMappingURL=footer.component.css.map */

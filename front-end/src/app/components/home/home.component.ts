@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MouseEvent } from '@agm/core';
+import { DestinationService } from '../../core/services/destination.service';
+import { DestinationViewModel } from '../../core/models/view-models/destination.view-model';
 
 @Component({
   templateUrl: './home.components.html',
@@ -7,52 +9,27 @@ import { MouseEvent } from '@agm/core';
 })
 export class HomeComponent implements OnInit {
   // google maps zoom level
-  zoom: number = 8;
+  zoom: number = 7;
 
   // initial center position for the map
-  lat: number = 51.673858;
-  lng: number = 7.815982;
-  constructor() {
+  lat: number = 42.621834;
+  lng: number = 25.395756;
+  public destinationModel: DestinationViewModel[];
+
+  constructor(private destinationService: DestinationService) {
 
   }
-
-  public ngOnInit() {
+  ngOnInit() {
+    this.destinationService.getAllDestinations().subscribe(data => {
+      if (data['success']) {
+        this.destinationModel = data['topDestinations'];
+        console.log(this.destinationModel)
+      }
+    })
   }
 
  public clickedMarker(label: string, index: number) {
     console.log(`clicked the marker: ${label || index}`)
   }
 
-  public mapClicked($event: MouseEvent) {
-    this.markers.push({
-      lat: $event.coords.lat,
-      lng: $event.coords.lng,
-      draggable: true
-    });
-  }
-
-  public markerDragEnd(m: marker, $event: MouseEvent) {
-    console.log('dragEnd', m, $event);
-  }
-
-  markers: marker[] = [
-	  {
-		  lat: 51.673858,
-		  lng: 7.815982,
-		  label: 'A',
-		  draggable: true
-	  },
-	  {
-		  lat: 51.373858,
-		  lng: 7.215982,
-		  label: 'B',
-		  draggable: false
-	  },
-	  {
-		  lat: 51.723858,
-		  lng: 7.895982,
-		  label: 'C',
-		  draggable: true
-	  }
-  ]
 }

@@ -19,27 +19,27 @@ export class HttpClientService {
   }
 
   public get<T>(url: string) {
-    this.headers = this.setHeaders();
+    this.setHeaders()
 
     return this.http
       .get<T>(environment.apiUrl + url, { headers: this.headers })
       .pipe(
-        catchError(err => this.handleError(err))
+      catchError(err => this.handleError(err))
       )
   }
 
   public post<T>(url: string, data: any) {
-    this.headers = this.setHeaders();
+    this.setHeaders()
 
     return this.http
-      .post<T>(`${environment.apiUrl + url}`, data, { headers:this.headers })
+      .post<T>(`${environment.apiUrl + url}`, data, { headers: this.headers })
       .pipe(
       catchError(err => this.handleError(err))
       )
   }
 
   public put<T>(url: string, data: any) {
-    this.headers = this.setHeaders();
+    this.setHeaders()
 
     return this.http
       .put<T>(`${environment.apiUrl + url}`, data, { headers: this.headers })
@@ -49,7 +49,7 @@ export class HttpClientService {
   }
 
   public delete(url: string, id: number) {
-    this.headers = this.setHeaders();
+    this.setHeaders()
 
     return this.http
       .delete(`${environment.apiUrl + url}/${id}`, { headers: this.headers })
@@ -97,9 +97,8 @@ export class HttpClientService {
     }
   }
 
-  private setHeaders():HttpHeaders  {
-    let token: string = this.tokenService.getToken();
-    let authHeaders: HttpHeaders = new HttpHeaders();
+  private setHeaders() {
+    let token: string = this.tokenService.getToken()
 
     if (token) {
        authHeaders = new HttpHeaders( {

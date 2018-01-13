@@ -1,14 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { DestinationViewModel } from '../../../core/models/view-models/destination.view-model';
+import { DestinationService } from '../../../core/services/destination.service';
 
 @Component({
-  selector: 'app-my-destinations',
   templateUrl: './my-destinations.component.html',
+  styleUrls: ['./my-destinations.component.scss']
 })
-export class MyDestinationsComponent implements OnInit {
 
-  constructor() { }
+export class MyDestinationsComponent {
+  public destinationModel: DestinationViewModel[] = []
 
-  ngOnInit() {
+  constructor(private destinationService: DestinationService) {
   }
-
+  public ngOnInit() {
+    this.destinationService.getMyDestinations()
+      .subscribe(destinations => {
+        this.destinationModel = destinations.topDestinations
+      })
+  }
 }

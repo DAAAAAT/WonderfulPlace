@@ -1,15 +1,16 @@
 const express = require('express');
 const router = new express.Router();
+const jwt = require('jsonwebtoken');
 
 const User = require('mongoose').model('User');
 const Destination = require('mongoose').model('Destination');
 
-router.get('/:id', async(req, res, next) => {
+router.get('/:id', async (req, res, next) => {
     let id = req.params.id;
 
     try {
         const user = await User.findById(id);
-        
+
         res.status(200).json({
             success: true,
             user
@@ -23,24 +24,26 @@ router.get('/:id', async(req, res, next) => {
 
 })
 
-router.get('/:id/wishToVisit' ,async(req, res, next) => {
-    let id = req.params.id
-    
+router.get('/wishToVisit', async (req, res, next) => {
     try {
-        const wishToVisit = await User.findById(id).populate('wishToVisit').select('wishToVisit')
-        if (!wishToVisit) {
-            res.status(200).json({
+        let token = req.headers.authorization.split(' ')[1];
+        let decoded = await jwt.verify(token, 's0m3 r4nd0m str1ng');
+        let userId = decoded.sub;
+        let user = await User.findById(userId);
+
+        let wishToVisit = user.wishToVisit;
+        if (!wishToVisit || !user) {
+            return res.status(417).json({
                 success: false,
-                message: 'User no exist.'
-            })
-            return
+                message: 'Could not get user wishlist'
+            });
         }
-        res.status(200).json({
+        return res.status(200).json({
             success: true,
             wishToVisit
         });
     } catch (error) {
-        res.status(200).json({
+        return res.status(400).json({
             success: false,
             message: error.message
         })
@@ -48,104 +51,30 @@ router.get('/:id/wishToVisit' ,async(req, res, next) => {
 
 })
 
-router.get('/:id/myVisitDestination' ,async(req, res, next) => {
-    let id = req.params.id
-    
+router.get('/myVisitDestination', async (req, res, next) => {
     try {
-        const myVisitedDestinations = await User.findById(id).populate('myVisitedDestinations').select('myVisitedDestinations')
-        if (!myVisitedDestinations) {
-            res.status(200).json({
+        let token = req.headers.authorization.split(' ')[1];
+        let decoded = await jwt.verify(token, 's0m3 r4nd0m str1ng');
+        let userId = decoded.sub;
+        let user = await User.findById(userId);
+
+        let myVisitedDestinations = user.myVisitedDestinations;
+        if (!myVisitedDestinations || !user) {
+           return res.status(417).json({
                 success: false,
-                message: 'User no exist.'
+                message: 'Could not get user destinations'
             })
-            return
         }
-        res.status(200).json({
+        return res.status(200).json({
             success: true,
             myVisitedDestinations
         });
     } catch (error) {
-        res.status(200).json({
+       return res.status(400).json({
             success: false,
             message: error.message
         })
     }
-
-})
-
-router.post('/:id/wishToVisit' ,async(req, res, next) => {
-    let id = req.params.id
-    let DestinationId = req.body.DestinationId
-    try {
-        let Destination = await Destination.findById(DestinationId)
-        let user = await User.findById(id)
-        if (!Destination || !user) {
-            res.status(200).json({
-                success: false,
-                message: 'User or Destination not exist'
-            }) 
-            return
-        }
-        await User.findByIdAndUpdate(
-            id, {
-                $addToSet: {
-                    "wishToVisit": DestinationId
-                }
-            }, {
-                safe: true,
-                upsert: true
-            }
-        );
-        
-        res.status(200).json({
-            success: true,
-            message: 'Success add wish to visit Destination.'
-        });
-    } catch (error) {
-        res.status(200).json({
-            success: false,
-            message: error.message
-        })
-    }
-
-})
-
-router.post('/:id/myVisitDestination' ,async(req, res, next) => {
-    let id = req.params.id
-    let DestinationId = req.body.DestinationId
-    try {
-        let Destination = await Destination.findById(DestinationId)
-        let user = await User.findById(id)
-        
-          if (!Destination || !user) {
-            res.status(200).json({
-                success: false,
-                message: 'User or Destination not exist'
-            }) 
-            return
-        }        
-        await User.findByIdAndUpdate(
-            id, {
-                $addToSet: {
-                    "myVisitedDestinations": DestinationId
-                }
-            }, {
-                safe: true,
-                upsert: true
-            }
-        );
-        
-        res.status(200).json({
-            success: true,
-            message: 'Success add my visited Destinations.'
-        });
-    } catch (error) {
-        res.status(200).json({
-            success: false,
-            message: error.message
-        })
-    }
-
-})
+});
 
 module.exports = router;

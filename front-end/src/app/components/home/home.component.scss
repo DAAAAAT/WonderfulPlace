@@ -1,36 +1,41 @@
-.card {
+.card{
   margin: 1rem;
   padding: 1rem;
   border: 0.5em cyan double;
   width: 33rem;
-  height: 60rem; }
+  height: 60rem;
+}
 
 agm-map {
   height: 300px;
 }
+
 ul {
-  list-style: none; }
+  list-style: none;
+}
 
-h5 {
+h5{
   border-style: none none double none;
-  border-color: cyan; }
+  border-color: cyan;
+}
 
-h4 {
+h4{
   font-family: Monotype Corsiva;
   text-align: center;
   border-style: none none double none;
-  border-color: cyan; }
+  border-color: cyan;
+}
 
 img.resize {
   max-width: 27rem;
-  height: auto; }
+  height: auto;
+}
 
-.title {
+.title{
   text-align: center;
   font-family: "Monotype Corsiva";
   font-size: 28px;
   text-shadow: 0 0 2px cyan;
   border-style: none none double none;
-  border-color: cyan; }
-
-/*# sourceMappingURL=home.component.css.map */
+  border-color: cyan;
+}

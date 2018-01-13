@@ -3,7 +3,7 @@ import { MouseEvent } from '@agm/core';
 
 @Component({
   templateUrl: './home.components.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
   // google maps zoom level
@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
   constructor() {
   }
   ngOnInit() {
-debugger
+
   }
 
   clickedMarker(label: string, index: number) {

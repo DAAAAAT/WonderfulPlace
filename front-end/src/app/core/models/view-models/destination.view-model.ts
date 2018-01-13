@@ -1,15 +1,15 @@
 import {CategoryViewModel} from './category.view-model';
 
 export class DestinationViewModel {
-  name: string
-  images: any[]
-  latitude: number
-  longitude: number
-  city: string
-  country: string
-  description: string
-  author: string
-  comments: string
-  category: CategoryViewModel
-  rating: number
+    public name: string
+    public images: any[]
+    public latitude: number
+    public longitude: number
+    public city: string
+    public country: string
+    public description: string
+    public author: string
+    public comments: string
+    public category: CategoryViewModel
+    public rating: number
 }

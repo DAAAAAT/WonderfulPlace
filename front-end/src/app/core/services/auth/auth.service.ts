@@ -30,7 +30,10 @@ export class AuthenticationService {
   public isLoggedIn(): boolean {
     let authtoken: string = localStorage.getItem('authtoken');
 
-    return authtoken === this.currentAuthToken;
+    if(authtoken){
+        return true
+    }
+    return false
   }
 
   get authtoken() {

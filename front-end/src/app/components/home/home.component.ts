@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
   lat: number = 51.673858;
   lng: number = 7.815982;
   constructor() {
+
   }
 
   public ngOnInit() {
@@ -54,11 +55,4 @@ export class HomeComponent implements OnInit {
 		  draggable: true
 	  }
   ]
-}
-
-interface marker {
-	lat: number;
-	lng: number;
-	label?: string;
-	draggable: boolean;
 }

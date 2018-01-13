@@ -119,9 +119,9 @@ function login(req, res, next) {
 }
 
 
-// router.get('/logout', function (req, res) {
-//     res.set('WWW-Authenticate', 'Basic realm=Authorization Required');
-//     return res.sendStatus(401);
-// });
+function logout(req, res) {
+    res.set('WWW-Authenticate', 'Basic realm=Authorization Required');
+    return res.sendStatus(401);
+}
 
-module.exports = {login, register};
+module.exports = {login, register, logout};

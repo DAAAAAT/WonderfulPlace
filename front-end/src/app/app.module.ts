@@ -11,6 +11,8 @@ import {DestinationModule} from './components/destinations/destination.module';
 import {HttpClientService} from './core/services/auth/http-client.service';
 import {TokenService} from './core/services/auth/token.service';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {AngularFontAwesomeModule} from "angular-font-awesome";
+import { ProfileComponent } from './components/profile/profile.component';
 
 //Google Maps module
 import {AgmCoreModule} from '@agm/core'
@@ -21,7 +23,8 @@ import {RouterModule} from '@angular/router';
   declarations: [
     AppComponent,
     HomeComponent,
-    WishListComponent
+    WishListComponent,
+	ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,9 @@ import {RouterModule} from '@angular/router';
     DestinationModule,
     SharedModule,
     NgbModule.forRoot(),
-    GuardsModule
+    GuardsModule,
+    DestinationModule,
+    AngularFontAwesomeModule
   ],
   providers: [HttpClientService, TokenService],
   bootstrap: [AppComponent]

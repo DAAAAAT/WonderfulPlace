@@ -3,7 +3,8 @@ import {DestinationViewModel} from '../../../core/models/view-models/destination
 import {DestinationService} from '../../../core/services/destination.service';
 
 @Component({
-  templateUrl: './all-destinations.component.html'
+  templateUrl: './all-destinations.component.html',
+  styleUrls: ['./all-destinations.component.scss']
 })
 
 export class AllDestinationsComponent {

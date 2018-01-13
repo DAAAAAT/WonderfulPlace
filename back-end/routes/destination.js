@@ -6,6 +6,33 @@ const Destination = require('mongoose').model('Destination');
 const Comment = require('mongoose').model('Comment');
 const User = require('mongoose').model('User');
 
+router.get('/getByCategory/:id', async (req, res, next) => {
+    try {
+        let categoryId = req.params.id;
+
+        let destinations = await Destination.find({ "category": categoryId});
+
+        destinations = destinations.sort((a, b) => b.rating - a.rating);
+
+        if (!destinations) {
+            return res.status(204).json({
+                success: false,
+                message: 'No Destinations available'
+            });
+        }
+
+        return res.status(200).json({
+            success: true,
+            destinations
+        });
+    } catch (err) {
+        return res.status(400).json({
+            success: false,
+            message: err.message
+        });
+    }
+});
+
 router.get('/', async (req, res, next) => {
     try {
         const allDestinations = await Destination.find({});

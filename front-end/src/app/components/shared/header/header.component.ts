@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { AuthenticationService } from '../../../core/services/auth/auth.service'
-import { CategoryViewModel } from '../../../core/models/view-models/category.view-model';
-import { DestinationService } from '../../../core/services/destination.service';
+import {Component, OnInit} from '@angular/core';
+import {AuthenticationService} from '../../../core/services/auth/auth.service'
+import {CategoryViewModel} from '../../../core/models/view-models/category.view-model';
+import {DestinationService} from '../../../core/services/destination.service';
 
 @Component({
   selector: 'app-header',
@@ -10,8 +10,11 @@ import { DestinationService } from '../../../core/services/destination.service';
 })
 export class HeaderComponent implements OnInit {
   public allCategory: CategoryViewModel[];
+  public isLogged: boolean = false;
 
-  constructor(private authService: AuthenticationService, private destinationService: DestinationService) { }
+  constructor(private authService: AuthenticationService, private destinationService: DestinationService) {
+    this.isLogged = authService.isLoggedIn()
+  }
 
   ngOnInit() {
     this.destinationService.getAllCategory().subscribe(data => {
@@ -22,8 +25,11 @@ export class HeaderComponent implements OnInit {
     })
   }
 
+  public onSelect(val) {
+    console.log(val)
+  }
 
-  pickCat() {
-    console.log('changed')
+  public logOut(): void {
+    this.authService.logOut()
   }
 }

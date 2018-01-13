@@ -60,7 +60,7 @@
         </li>
 
         <li  *ngIf="isLogged" class="right">
-          <a href="#">Log Out</a>
+          <a (click)="logOut()">Log Out</a>
         </li>
         <li  *ngIf="isLogged" class="right">
           <a routerLink="/profile">Rizzle</a>

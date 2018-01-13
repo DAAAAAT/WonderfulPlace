@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { AuthenticationService } from '../../../core/services/auth/auth.service'
-import { CategoryViewModel } from '../../../core/models/view-models/category.view-model';
-import { DestinationService } from '../../../core/services/destination.service';
+import {Component, OnInit} from '@angular/core';
+import {AuthenticationService} from '../../../core/services/auth/auth.service'
+import {CategoryViewModel} from '../../../core/models/view-models/category.view-model';
+import {DestinationService} from '../../../core/services/destination.service';
 
 @Component({
   selector: 'app-header',
@@ -29,4 +29,8 @@ export class HeaderComponent implements OnInit {
     console.log(val)
   }
 
+
+  public logOut(): void {
+    this.authService.logOut()
+  }
 }

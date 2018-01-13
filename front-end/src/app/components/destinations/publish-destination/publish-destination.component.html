@@ -1,114 +1,124 @@
+<div class="auth-form">
+  <div class="wrapper-form">
+    <h1>Create Destination</h1>
+    <hr>
 
+    <form (ngSubmit)="createDestination()" #destinationForm="ngForm">
+      <div class="form-wrapper">
+        <div class="left-col">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name"
+                   required
+                   minlength="4"
+                   [(ngModel)]="destinationModel.name"
+                   name="name"
+                   #name="ngModel">
+            <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+              Name is required and must have at least 4 characters.
+            </div>
+          </div>
 
-<div class="container">
-  <h1>Create Destination</h1>
+          <div class="form-group">
+            <label for="city">City</label>
+            <input type="text" class="form-control" id="city"
+                   required
+                   minlength="4"
+                   [(ngModel)]="destinationModel.city"
+                   name="city"
+                   #city="ngModel">
+            <div [hidden]="city.valid || city.pristine" class="alert alert-danger">
+              City is required and must have at least 4 characters.
+            </div>
+          </div>
 
-  <form (ngSubmit)="createDestination()" #destinationForm="ngForm">
-    <div class="form-group">
-      <label for="name">Name</label>
-      <input type="text" class="form-control" id="name"
-             required
-             minlength="4"
-             [(ngModel)]="destinationModel.name"
-             name="name"
-             #name="ngModel">
-      <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
-        Name is required and must have at least 4 characters.
+          <div class="form-group">
+            <label for="country">Country</label>
+            <input type="text" class="form-control" id="country"
+                   required
+                   minlength="4"
+                   [(ngModel)]="destinationModel.country"
+                   name="country"
+                   #country="ngModel">
+            <div [hidden]="country.valid || country.pristine" class="alert alert-danger">
+              Country is required and must have at least 4 characters.
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="category">Category</label>
+            <select class="form-control" id="category"
+                    required
+                    [(ngModel)]="destinationModel.categoryId"
+                    name="categoryId">
+              <option *ngFor="let cat of allCategory" [value]="cat._id">{{cat.title}}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="right-col">
+
+          <div class="form-group">
+            <label for="description">Description</label>
+            <input type="text" class="form-control" id="description"
+                   required
+                   minlength="10"
+                   [(ngModel)]="destinationModel.description"
+                   name="description"
+                   #description="ngModel">
+            <div [hidden]="description.valid || description.pristine" class="alert alert-danger">
+              Description is required and must have at least 10 characters.
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="longitude">Longitude: </label>
+            <input type="number" class="form-control" id="longitude"
+                   required
+                   [(ngModel)]="destinationModel.lng"
+                   name="longitude"
+                   #longitude="ngModel">
+            <div [hidden]="longitude.valid || longitude.pristine" class="alert alert-danger">
+              Longitude is required!
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="latitude">Latitude: </label>
+            <input type="number" class="form-control" id="latitude"
+                   required
+                   [(ngModel)]="destinationModel.lat"
+                   name="latitude"
+                   #latitude="ngModel">
+            <div [hidden]="latitude.valid || latitude.pristine" class="alert alert-danger">
+              Latitude is required!
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="images">Image: </label>
+            <input type="text" class="form-control" id="images"
+                   required
+                   [(ngModel)]="destinationModel.image"
+                   name="images"
+                   #images="ngModel">
+            <div [hidden]="images.valid || images.pristine" class="alert alert-danger">
+              Image is required!
+            </div>
+          </div>
+        </div>
       </div>
+      <button [disabled]="!destinationForm.form.valid" type="submit" class="btn btn-success">Create</button>
+      <br>
+    </form>
+
+
+    <div *ngIf="addDestinationSuccess" class="alert alert-success">
+      Successful create destination!
     </div>
-
-    <div class="form-group">
-      <label for="city">City</label>
-      <input type="text" class="form-control" id="city"
-             required
-             minlength="4"
-             [(ngModel)]="destinationModel.city"
-             name="city"
-             #city="ngModel">
-      <div [hidden]="city.valid || city.pristine" class="alert alert-danger">
-        City is required and must have at least 4 characters.
-      </div>
+    <div *ngIf="addDestinationFail" class="alert alert-danger">
+      {{failMessage}}
     </div>
-
-    <div class="form-group">
-      <label for="country">Country</label>
-      <input type="text" class="form-control" id="country"
-             required
-             minlength="4"
-             [(ngModel)]="destinationModel.country"
-             name="country"
-             #country="ngModel">
-      <div [hidden]="country.valid || country.pristine" class="alert alert-danger">
-        Country is required and must have at least 4 characters.
-      </div>
-    </div>
-
-    <div class="form-group">
-      <label for="category">Category</label>
-      <select class="form-control" id="category"
-              required
-              [(ngModel)]="destinationModel.categoryId"
-              name="categoryId">
-        <option *ngFor="let cat of allCategory">{{cat.title}}</option>
-      </select>
-    </div>
-
-    <div class="form-group">
-      <label for="description">Description</label>
-      <input type="text" class="form-control" id="description"
-             required
-             minlength="10"
-             [(ngModel)]="destinationModel.description"
-             name="description"
-             #description="ngModel" >
-      <div [hidden]="description.valid || description.pristine" class="alert alert-danger">
-        Description is required and must have at least 10 characters.
-      </div>
-    </div>
-
-    <div class="form-group">
-      <label for="longitude">Longitude: </label>
-      <input type="number" class="form-control" id="longitude"
-             required
-             [(ngModel)]="destinationModel.lng"
-             name="longitude"
-             #longitude="ngModel" >
-      <div [hidden]="longitude.valid || longitude.pristine" class="alert alert-danger">
-        Longitude is required!
-      </div>
-    </div>
-
-    <div class="form-group">
-      <label for="latitude">Latitude: </label>
-      <input type="number" class="form-control" id="latitude"
-             required
-             [(ngModel)]="destinationModel.lat"
-             name="latitude"
-             #latitude="ngModel" >
-      <div [hidden]="latitude.valid || latitude.pristine" class="alert alert-danger">
-        Latitude is required!
-      </div>
-    </div>
-
-    <div class="form-group">
-      <label for="images">Image: </label>
-      <input type="text" class="form-control" id="images"
-             required
-             [(ngModel)]="destinationModel.image"
-             name="images"
-             #images="ngModel" >
-      <div [hidden]="images.valid || images.pristine" class="alert alert-danger">
-        Image is required!
-      </div>
-    </div>
-
-    <button [disabled]="!destinationForm.form.valid" type="submit" class="btn btn-success">Create</button>
-  </form>
-
-  <div *ngIf="addDestinationSuccess" class="alert alert-success">
-    Successful create destination!
-  </div>
-  <div *ngIf="addDestinationFail" class="alert alert-danger">
-    {{failMessage}}
   </div>
 </div>
+

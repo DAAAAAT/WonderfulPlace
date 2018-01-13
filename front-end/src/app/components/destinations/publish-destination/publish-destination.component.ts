@@ -7,6 +7,7 @@ import {DestinationInputModel} from '../../../core/models/view-models/destinatio
 @Component({
   selector: 'app-publish-destination',
   templateUrl: './publish-destination.component.html',
+  styleUrls: ['./publish-destination.component.scss']
 })
 export class PublishDestinationComponent implements OnInit {
   public destinationModel : DestinationInputModel;

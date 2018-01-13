@@ -10,8 +10,11 @@ import { DestinationService } from '../../../core/services/destination.service';
 })
 export class HeaderComponent implements OnInit {
   public allCategory: CategoryViewModel[];
+  public isLogged: boolean = false;
 
-  constructor(private authService: AuthenticationService, private destinationService: DestinationService) { }
+  constructor(private authService: AuthenticationService, private destinationService: DestinationService) {
+    this.isLogged = authService.isLoggedIn()
+  }
 
   ngOnInit() {
     this.destinationService.getAllCategory().subscribe(data => {

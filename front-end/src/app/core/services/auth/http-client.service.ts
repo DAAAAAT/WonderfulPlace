@@ -12,7 +12,7 @@ export class HttpClientService {
   private headers: HttpHeaders = new HttpHeaders(
     {
       'Content-Type': 'application/json'
-    })
+    });
 
   constructor(private http: HttpClient,
     private tokenService: TokenService) {
@@ -101,10 +101,13 @@ export class HttpClientService {
     let token: string = this.tokenService.getToken()
 
     if (token) {
-      let authorization = { Authorization: `bearer ${token}` }
-
-      Object.keys(authorization)
-        .forEach(header => this.headers.set(header, authorization[header]))
+       authHeaders = new HttpHeaders( {
+         "Authorization" : `bearer ${token}`,
+        'Content-Type': 'application/json'
+      });
+      return authHeaders;
+    }else {
+      return this.headers;
     }
   }
 }

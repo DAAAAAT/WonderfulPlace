@@ -1,14 +1,15 @@
-import { NgModule } from '@angular/core';
+import {NgModule} from '@angular/core';
 
-import { authenticationComponents } from './index';
+import {authenticationComponents} from './index';
 
 // Modules
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import {CommonModule} from '@angular/common';
+import {FormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
 
 // Services
-import { AuthenticationService } from '../../core/services/auth/auth.service';
+import {AuthenticationService} from '../../core/services/auth/auth.service';
+import {RouterModule} from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -17,11 +18,13 @@ import { AuthenticationService } from '../../core/services/auth/auth.service';
   imports: [
     CommonModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule
   ],
   exports: [
     ...authenticationComponents
   ],
-  providers: [ AuthenticationService ]
+  providers: [AuthenticationService]
 })
-export class AuthenticationModule {  }
+export class AuthenticationModule {
+}

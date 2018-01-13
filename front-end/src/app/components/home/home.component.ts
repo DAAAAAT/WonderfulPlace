@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
     })
   }
 
-  clickedMarker(label: string, index: number) {
+ public clickedMarker(label: string, index: number) {
     console.log(`clicked the marker: ${label || index}`)
   }
 

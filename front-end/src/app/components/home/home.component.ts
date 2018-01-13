@@ -22,8 +22,6 @@ export class HomeComponent implements OnInit {
     console.log(`clicked the marker: ${label || index}`)
   }
 
-
-
   markers: marker[] = [
 	  {
 		  lat: 51.673858,

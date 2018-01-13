@@ -11,6 +11,7 @@ const destinationRoutes = require('./destination');
 module.exports = (app) => {
     app.post('/login', authRoutes.login);
     app.post('/register', authRoutes.register);
+    app.post('/logout', authRoutes.logout);
     app.use('/profile', authCheck, profileRoutes);
     app.use('/', homeRoutes);
     app.use('/admin',  adminRoutes);

@@ -49,7 +49,7 @@
               required
               [(ngModel)]="destinationModel.categoryId"
               name="categoryId">
-        <option *ngFor="let cat of allCategory" [value]="cat._id">{{cat.title}}</option>
+        <option *ngFor="let cat of allCategory">{{cat.title}}</option>
       </select>
     </div>
 

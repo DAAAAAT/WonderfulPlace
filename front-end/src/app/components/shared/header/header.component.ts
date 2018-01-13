@@ -22,8 +22,8 @@ export class HeaderComponent implements OnInit {
     })
   }
 
-
-  pickCat() {
-    console.log('changed')
+  onSelect(val) {
+    console.log(val)
   }
+
 }

@@ -23,7 +23,7 @@
         <li class="left">
           <div class="dropdown">
             <div class="select collapsed">
-              <select  name="categoryId">
+              <select (change)="onSelect($event.target.value)" name="categoryId">
                 <option *ngFor="let cat of allCategory" [value]="cat._id">{{cat.title}}</option>
               </select>
             </div>

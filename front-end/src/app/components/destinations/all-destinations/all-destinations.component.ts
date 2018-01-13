@@ -7,14 +7,14 @@ import {DestinationService} from '../../../core/services/destination.service';
 })
 
 export class AllDestinationsComponent {
-  public destinationModel: DestinationViewModel = new DestinationViewModel()
+  public destinationModel: DestinationViewModel[] = []
 
   constructor(private destinationService: DestinationService) {
   }
   public ngOnInit() {
     this.destinationService.getAllDestinations()
       .subscribe(destinations => {
-        this.destinationModel = destinations
+        this.destinationModel = destinations.topDestinations
       })
   }
 }

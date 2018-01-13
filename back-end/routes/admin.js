@@ -104,10 +104,10 @@ router.delete('/deleteCategory/:id', async (req, res, next) => {
 
 router.delete('/deleteComment/:id', async (req, res, next) => {
     try {
-        let id = req.params.id;
+        let id = req.params.id
 
         Comment.findByIdAndRemove(id).then((deletedComment) => {
-            return res.status(200).json({
+            res.status(200).json({
                 success: true,
                 deletedComment
             });
@@ -115,10 +115,10 @@ router.delete('/deleteComment/:id', async (req, res, next) => {
     } catch (err) {
         handleError(err, res)
     }
-});
+})
 
 function handleError(error, res) {
-    return res.status(400).json({
+    res.status(200).json({
         success: false,
         message: error.message
     })

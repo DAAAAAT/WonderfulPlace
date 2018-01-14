@@ -7,7 +7,7 @@
 
     <agm-marker *ngFor="let d of destinationModel" [latitude]="d.latitude" [longitude]="d.longitude">
       <agm-info-window>
-        <button routerLink="/destinations/{{d._id}}">Details</button>
+        <button routerLink="/destination/{{d._id}}">Details</button>
       </agm-info-window>
     </agm-marker>
 

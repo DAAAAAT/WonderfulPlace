@@ -106,51 +106,58 @@ a:hover, button:hover {
   }
 }
 
-.collapsed {
-  z-index: 5;
-  &:before {
-    content: '';
-    position: absolute;
-    background-color: #ffffff;
-    width: 14px;
-    height: 14px;
-    -webkit-transform: rotate(45deg);
-    top: 7px;
-    right: 15px;
-  }
-  &:after {
-    content: '';
-    position: absolute;
-    background-color: $light-green;
-    width: 14px;
-    height: 14px;
-    -webkit-transform: rotate(45deg);
-    top: 3px;
-    right: 15px;
-  }
-}
+//.collapsed {
+//  z-index: 5;
+//  &:before {
+//    content: '';
+//    position: absolute;
+//    background-color: #ffffff;
+//    width: 14px;
+//    height: 14px;
+//    -webkit-transform: rotate(45deg);
+//    top: 7px;
+//    right: 15px;
+//  }
+//  &:after {
+//    content: '';
+//    position: absolute;
+//    background-color: $light-green;
+//    width: 14px;
+//    height: 14px;
+//    -webkit-transform: rotate(45deg);
+//    top: 3px;
+//    right: 15px;
+//  }
+//}
+//
+//.option, .shown {
+//  width: 250px;
+//  line-height: 34px;
+//  padding-left: 15px;
+//  cursor: pointer;
+//  background-color: #34495E;
+//
+//  transition: all 0.3s ease;
+//}
 
-.option, .shown {
-  width: 250px;
-  line-height: 34px;
-  padding-left: 15px;
-  cursor: pointer;
-  background-color: #34495E;
-
-  transition: all 0.3s ease;
-}
-
-.option {
-  display: none;
-  border-bottom: 1px solid #3a5755;
-  &:hover {
-    background: $light-green;
-  }
-}
+//.option {
+//  display: none;
+//  border-bottom: 1px solid #3a5755;
+//  &:hover {
+//    background: $light-green;
+//  }
+//}
 
 .shown {
   background-color: $light-green;
   font-weight: 400;
+  color: white;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.option{
+  padding: 8px;
 }
 
 //END OF DROP DOWN MENU ---------------------
@@ -196,7 +203,7 @@ a:hover, button:hover {
     background: $light-green;
     width: 120px;
     line-height: 30px;
-    margin-top: 12px;
+    margin-top: 6px;
     margin-left: -20px;
     font-weight: 400;
     font-family: Lato, Helvetica Neue, Arial, sans-serif;

@@ -3,7 +3,6 @@
     <h1>All Destinations</h1>
     <hr>
     <div class="card-wrapper">
-
       <article *ngFor="let d of destinationModel" class="destination-card">
         <h1>{{d.name}}</h1>
         <img src="d.image" alt="">
@@ -18,11 +17,8 @@
           <h2 class="rating">Rating: {{d.rating}}</h2>
           <h2 class="stars">&#9733; &#9733; &#9734; &#9734; &#9734; </h2>
         </div>
-
-        <button>Show More</button>
+        <a [routerLink]="['/destination', d._id]" routerLinkActive="active">Show More</a>
       </article>
-
     </div>
   </div>
-
 </main>

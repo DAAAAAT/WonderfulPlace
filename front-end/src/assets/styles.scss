@@ -40,6 +40,186 @@ img {
   max-width: 100%;
 }
 
+.details {
+  max-width: 1270px;
+  margin: -16px auto 0 auto;
+  height: auto;
+  padding-top: 40px;
+  background: white;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+
+  .detailed-wrapper {
+    margin-top: 30px;
+    padding: 20px 20px 20px 20px;
+    display: flex;
+    justify-content: space-evenly;
+    .left-detail {
+
+      max-width: 700px;
+      min-width: 300px;
+      img {
+        border-radius: 2px;
+      }
+
+    }
+    .right-detail {
+      padding: 15px;
+      max-width: 500px;
+      h1 {
+        font-weight: 500;
+      }
+      button {
+        color: white;
+        font-size: 17px;
+        border-radius: 4px;
+
+        width: 100px;
+        line-height: 23px;
+        transition: background-color 0.30s ease;
+      }
+      .edit {
+        border: 1px solid $light-green;
+        background: $light-green;
+        &:hover {
+          background: white;
+          color: $light-green;
+        }
+      }
+      .delete {
+        border: 1px solid red;
+        background: red;
+        margin-left: 5px;
+        &:hover, &:active {
+          background: white;
+          color: red;
+        }
+      }
+    }
+
+    h1, h2 {
+      color: $light-green;
+      font-family: 'Raleway', sans-serif;
+      text-align: left;
+      font-size: 25px;
+      font-weight: 400;
+
+    }
+    p {
+      color: black;
+    }
+    .destination {
+      margin-top: 5px;
+      font-size: 16px;
+      color: black;
+    }
+    .description-title {
+      font-weight: 600;
+    }
+    .description-text {
+      margin-top: -12px;
+      font-family: 'Raleway', sans-serif;
+      font-size: 15px;
+    }
+    .author {
+      float: left;
+      font-weight: 600;
+    }
+    .category {
+      float: right;
+      font-weight: 600;
+    }
+    .rating {
+      clear: both;
+      font-size: 18px;
+    }
+  }
+
+  .comment-section {
+    padding: 60px 20px 20px 20px;
+    h1 {
+      color: black;
+      font-size: 24px;
+    }
+    button {
+      color: white;
+      font-size: 17px;
+      border-radius: 4px;
+      width: 100px;
+      line-height: 23px;
+      transition: background-color 0.30s ease;
+      border: 1px solid $light-green;
+      background: $light-green;
+      &:hover {
+        background: white;
+        color: $light-green;
+      }
+    }
+    .text-area {
+      padding: 5px;
+      margin: 15px 0 10px -2px;
+      resize: none;
+      color: black;
+      max-width: 800px;
+      //text-shadow: 1px 1px 1px black;
+      background: white;
+      border-radius: 2px;
+      border: 1px solid rgba(128, 128, 128, 0.31);
+      font-family: 'Raleway', sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      display: block;
+      transition: box-shadow 0.3s ease-in-out;;
+      &:focus {
+        outline: 0;
+        box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.09), 0 3px 2px 0 rgba(0, 0, 0, 0.12);
+      }
+      &::placeholder{
+        color: rgb(192, 192, 192);
+      }
+    }
+    .comments-wrapper {
+      .comment {
+        position: relative;
+        margin-top: 20px;
+        max-width: 600px;
+        padding: 10px;
+        border: 1px solid rgba(128, 128, 128, 0.16);
+        box-shadow: -1px 11px 10px -12px rgba(0, 0, 0, 0.47);
+        p, span {
+          color: black;
+          font-size: 13px;
+          margin: 0;
+        }
+        article {
+          display: inline-block;
+        }
+        img {
+          width: 30px;
+        }
+        .comment-info {
+          vertical-align: super;
+        }
+        .comment-author {
+          font-weight: 600;
+          font-size: 16px;
+          padding-left: 5px;
+        }
+        .comment-text {
+          font-size: 15px;
+        }
+        .delete-x {
+          cursor: pointer;
+          position: absolute;
+          top: 5px;
+          right: 10px;
+          font-weight: 800;
+          font-family: 'Raleway', sans-serif;
+        }
+      }
+    }
+  }
+}
+
 blockquote {
   font-style: italic;
   margin: 1em;

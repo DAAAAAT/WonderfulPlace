@@ -1,0 +1,79 @@
+<main>
+  <div class="details">
+    <div class="detailed-wrapper">
+      <div class="left-detail">
+        <img src="https://static.pexels.com/photos/20974/pexels-photo.jpg"
+             alt="img">
+      </div>
+      <div class="right-detail">
+        <h1>{{destinationModel.name}}</h1>
+        <h1 class="destination">{{destinationModel.city}}, {{destinationModel.country}}</h1>
+        <p><i class="fa fa-clock-o"></i> Posted on 13 Jan 2017 &emsp; <i class="fa fa-comments"></i> 4 comments
+        </p>
+        <p class="description-title">Description:</p>
+        <p class="description-text">{{destinationModel.description}}</p>
+        <p class="author">Admin</p>
+        <p class="category">{{destinationModel.category}}</p>
+        <p class="rating">Rating: &#9733; &#9733; &#9734; &#9734; &#9734;</p>
+        <button class="edit">Edit</button>
+        <button class="delete" (click)="delete()">Delete</button>
+      </div>
+    </div>
+
+    <div class="comment-section">
+      <h1>Comments</h1>
+      <hr/>
+
+      <textarea [(ngModel)]="content" class="text-area" name="commentArea" cols="63" rows="5"
+                placeholder="Post a comment..."></textarea>
+      <button (click)="addComment()" class="submit" type="submit">Submit</button>
+
+      <div class="comments-wrapper">
+        <div class="comment">
+          <article>
+            <img src="https://cdn.pixabay.com/photo/2016/08/20/05/38/avatar-1606916_960_720.png"
+                 alt="avatar">
+          </article>
+          <article class="comment-info">
+            <p>
+              <span (click)="deleteComment()" class="comment-author">Rizzle</span> 23:47, 14 Jan 2017 <span
+              class="delete-x">X</span>
+            </p>
+          </article>
+          <p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex necessitatibus,
+            numquam quisquam
+            repudiandae sunt tenetur. Lorem ipsum dolor sit amet, consectetur.</p>
+
+        </div>
+
+        <div class="comment">
+          <article>
+            <img src="https://cdn.pixabay.com/photo/2016/08/20/05/38/avatar-1606916_960_720.png"
+                 alt="avatar">
+          </article>
+          <article class="comment-info">
+            <p><span class="comment-author">Rizzle</span> 23:47, 14 Jan 2017 <span class="delete-x">X</span></p>
+          </article>
+          <p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex necessitatibus, numquam
+            quisquam
+            repudiandae sunt tenetur. Lorem ipsum dolor sit amet, consectetur. Lorem ipsum dolor sit amet, consectetur
+            adipisicing elit. Adipisci doloribus in ipsum laborum porro voluptate!</p>
+        </div>
+
+        <div class="comment">
+          <article>
+            <img src="https://cdn.pixabay.com/photo/2016/08/20/05/38/avatar-1606916_960_720.png"
+                 alt="avatar">
+          </article>
+          <article class="comment-info">
+            <p><span class="comment-author">Rizzle</span> 23:47, 14 Jan 2017 <span class="delete-x">X</span></p>
+          </article>
+          <p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex necessitatibus, numquam
+            quisquam
+            repudiandae sunt tenetur. Lorem ipsum dolor sit amet, consectetur. Lorem ipsum dolor sit amet, consectetur
+            adipisicing elit. Adipisci doloribus in ipsum laborum porro voluptate!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

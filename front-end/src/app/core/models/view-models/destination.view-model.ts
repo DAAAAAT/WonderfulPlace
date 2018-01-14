@@ -2,7 +2,8 @@ import {CategoryViewModel} from './category.view-model';
 import {CommentViewModel} from './comment.view-model';
 
 export class DestinationViewModel {
-    public name: string
+  public _id: string
+  public name: string
   public images: any[]
   public latitude: number
   public longitude: number

@@ -14,8 +14,6 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {AngularFontAwesomeModule} from "angular-font-awesome";
 import { ProfileComponent } from './components/profile/profile.component';
 import {CreateCategoryComponent} from './components/categories/create-category/create-category.component';
-
-//Google Maps module
 import {AgmCoreModule} from '@agm/core'
 import {GuardsModule} from './core/guards/guards.module';
 import {RouterModule} from '@angular/router';

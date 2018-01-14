@@ -12,6 +12,7 @@ export class AllDestinationsComponent {
 
   constructor(private destinationService: DestinationService) {
   }
+
   public ngOnInit() {
     this.destinationService.getAllDestinations()
       .subscribe(destinations => {

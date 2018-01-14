@@ -11,6 +11,8 @@ import {DestinationService} from '../../../core/services/destination.service';
 export class HeaderComponent implements OnInit {
   public allCategory: CategoryViewModel[];
   public isLogged: boolean = false;
+  public isAdmin: boolean = false;
+  public username: string;
 
   constructor(private authService: AuthenticationService, private destinationService: DestinationService) {
     this.isLogged = authService.isLoggedIn()
@@ -22,7 +24,14 @@ export class HeaderComponent implements OnInit {
         this.allCategory = data['categories'];
         console.log(this.allCategory)
       }
-    })
+    });
+
+
+    if(this.authService.currRole === "Admin"){
+        this.isAdmin = true;
+    }
+
+    this.username = localStorage.getItem('username');
   }
 
   public onSelect(val) {

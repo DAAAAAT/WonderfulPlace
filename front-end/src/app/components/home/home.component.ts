@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MouseEvent } from '@agm/core';
 import { DestinationService } from '../../core/services/destination.service';
 import { DestinationViewModel } from '../../core/models/view-models/destination.view-model';
+import { PopupComponent } from './popup-window/popup-window.component';
 
 @Component({
   templateUrl: './home.components.html',
@@ -28,8 +29,7 @@ export class HomeComponent implements OnInit {
     })
   }
 
- public clickedMarker(label: string, index: number) {
+  public clickedMarker(label: string, index: number) {
     console.log(`clicked the marker: ${label || index}`)
   }
-
 }

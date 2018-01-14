@@ -8,6 +8,7 @@ import {MyDestinationsComponent} from './components/destinations/my-destinations
 import {PublishDestinationComponent} from './components/destinations/publish-destination/publish-destination.component';
 import {LoginFormGuard, AdminGuard, AuthGuard} from './core/guards';
 import {DetailsComponent} from './components/destinations/details/details.component';
+import {CreateCategoryComponent} from "./components/categories/create-category/create-category.component";
 
 export const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -18,5 +19,6 @@ export const routes: Routes = [
   {path: 'destination/:id', component: DetailsComponent},
   {path: 'wishList', component: WishListComponent, canActivate: [AuthGuard]},
   {path: 'register', component: RegisterFormComponent},
-  {path: 'login', component: LoginFormComponent, canActivate: [LoginFormGuard]}
+  {path: 'login', component: LoginFormComponent, canActivate: [LoginFormGuard]},
+  {path: 'addCategory', component: CreateCategoryComponent}
 ]

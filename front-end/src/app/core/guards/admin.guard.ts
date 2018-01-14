@@ -15,12 +15,11 @@ export class AdminGuard implements CanActivate {
   }
 
   checkRole(): boolean {
-    let role: string = this.authService.currRole
+    let role: string = localStorage.role
 
     if (role === 'Admin') {
       return true
     }
-
     console.log('Unauthorized user!')
     this.router.navigate(['/home'])
 

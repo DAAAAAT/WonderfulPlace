@@ -24,8 +24,8 @@
         <li class="left">
           <div class="dropdown">
             <div class="select collapsed">
-              <select (change)="onSelect($event.target.value)" name="categoryId">
-                <option *ngFor="let cat of allCategory" [value]="cat._id">{{cat.title}}</option>
+              <select class="shown" (change)="onSelect($event.target.value)" name="categoryId">
+                <option class="option" *ngFor="let cat of allCategory" [value]="cat._id">{{cat.title}}</option>
               </select>
             </div>
           </div>
@@ -57,11 +57,15 @@
           <a routerLink="/allDestinations">All Destinations</a>
         </li>
 
-        <li *ngIf="isLogged" class="right">
+        <li>
+          <a *ngIf="isLogged" routerLink="/addCategory">Add Category</a>
+        </li>
+
+        <li  *ngIf="isLogged" class="right">
           <a (click)="logOut()">Log Out</a>
         </li>
-        <li *ngIf="isLogged" class="right">
-          <a routerLink="/profile">Rizzle</a>
+        <li  *ngIf="isLogged" class="right">
+          <a routerLink="/profile">{{username}}</a>
         </li>
         <li *ngIf="isLogged" class="right">
           <a routerLink="/myDestinations">My Destinations</a>

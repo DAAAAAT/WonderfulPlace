@@ -101,7 +101,7 @@ export class HttpClientService {
     let token: string = this.tokenService.getToken()
 
     if (token) {
-       authHeaders = new HttpHeaders( {
+      let authHeaders = new HttpHeaders( {
          "Authorization" : `bearer ${token}`,
         'Content-Type': 'application/json'
       });

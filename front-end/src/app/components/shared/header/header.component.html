@@ -16,15 +16,16 @@
     <nav class="navbar-main">
       <ul class="nav-ul">
         <li class="left logo">
-          <img routerLink="/home" src="https://www.freelogoservices.com/api/main/images/1j+ojl1FOMkX9WypfBe43D6kjfGHpR9PmxjJwXs1M3EMoAJtlSEogfNq8fw8"
-            alt="logo">
+          <img routerLink="/home"
+               src="https://www.freelogoservices.com/api/main/images/1j+ojl1FOMkX9WypfBe43D6kjfGHpR9PmxjJwXs1M3EMoAJtlSEogfNq8fw8"
+               alt="logo">
         </li>
 
         <li class="left">
           <div class="dropdown">
             <div class="select collapsed">
-              <select (change)="onSelect($event.target.value)" name="categoryId">
-                <option *ngFor="let cat of allCategory" [value]="cat._id">{{cat.title}}</option>
+              <select class="shown" (change)="onSelect($event.target.value)" name="categoryId">
+                <option class="option" *ngFor="let cat of allCategory" [value]="cat._id">{{cat.title}}</option>
               </select>
             </div>
           </div>
@@ -47,7 +48,7 @@
     <nav class="navbar-second">
       <ul>
         <li *ngIf="isLogged">
-          <a  routerLink="/publish">Publish Destination</a>
+          <a routerLink="/publish">Publish Destination</a>
         </li>
         <li *ngIf="isLogged">
           <a routerLink="/wishList">Wish to Visit List</a>
@@ -56,16 +57,20 @@
           <a routerLink="/allDestinations">All Destinations</a>
         </li>
 
+        <li>
+          <a *ngIf="isLogged" routerLink="/addCategory">Add Category</a>
+        </li>
+
         <li  *ngIf="isLogged" class="right">
           <a (click)="logOut()">Log Out</a>
         </li>
         <li  *ngIf="isLogged" class="right">
-          <a routerLink="/profile">Rizzle</a>
+          <a routerLink="/profile">{{username}}</a>
         </li>
-        <li  *ngIf="isLogged" class="right">
+        <li *ngIf="isLogged" class="right">
           <a routerLink="/myDestinations">My Destinations</a>
         </li>
-        <li  *ngIf="!isLogged" class="right">
+        <li *ngIf="!isLogged" class="right">
           <a routerLink="/register">Register</a>
         </li>
         <li *ngIf="!isLogged" class="right">

@@ -81,44 +81,15 @@ a:hover, button:hover {
   .select:hover .option {
     display: block; }
 
-.collapsed {
-  z-index: 5; }
-  .collapsed:before {
-    content: '';
-    position: absolute;
-    background-color: #ffffff;
-    width: 14px;
-    height: 14px;
-    -webkit-transform: rotate(45deg);
-    top: 7px;
-    right: 15px; }
-  .collapsed:after {
-    content: '';
-    position: absolute;
-    background-color: #0ebc82;
-    width: 14px;
-    height: 14px;
-    -webkit-transform: rotate(45deg);
-    top: 3px;
-    right: 15px; }
-
-.option, .shown {
-  width: 250px;
-  line-height: 34px;
-  padding-left: 15px;
-  cursor: pointer;
-  background-color: #34495E;
-  transition: all 0.3s ease; }
-
-.option {
-  display: none;
-  border-bottom: 1px solid #3a5755; }
-  .option:hover {
-    background: #0ebc82; }
-
 .shown {
   background-color: #0ebc82;
-  font-weight: 400; }
+  font-weight: 400;
+  color: white;
+  padding: 8px;
+  border-radius: 4px; }
+
+.option {
+  padding: 8px; }
 
 .left {
   float: left; }
@@ -127,8 +98,6 @@ a:hover, button:hover {
 
 .right {
   float: right; }
-  /* .right:nth-of-type(3) {
-    margin-top: -13px; } */
   .right input {
     color: #000000;
     font-size: 17px;
@@ -155,7 +124,7 @@ a:hover, button:hover {
     background: #0ebc82;
     width: 120px;
     line-height: 30px;
-    margin-top: 12px;
+    margin-top: 6px;
     margin-left: -20px;
     font-weight: 400;
     font-family: Lato, Helvetica Neue, Arial, sans-serif;

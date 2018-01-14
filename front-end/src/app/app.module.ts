@@ -13,13 +13,11 @@ import { TokenService } from './core/services/auth/token.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AngularFontAwesomeModule } from "angular-font-awesome";
 import { ProfileComponent } from './components/profile/profile.component';
-import { CreateCategoryComponent } from './components/categories/create-category/create-category.component';
-
-//Google Maps module
-import { AgmCoreModule } from '@agm/core'
-import { GuardsModule } from './core/guards/guards.module';
-import { RouterModule } from '@angular/router';
-import { environment } from '../environments/environment';
+import {CreateCategoryComponent} from './components/categories/create-category/create-category.component';
+import {AgmCoreModule} from '@agm/core'
+import {GuardsModule} from './core/guards/guards.module';
+import {RouterModule} from '@angular/router';
+import {environment} from '../environments/environment';
 
 @NgModule({
   declarations: [

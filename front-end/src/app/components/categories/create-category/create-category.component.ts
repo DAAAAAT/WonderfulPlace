@@ -6,6 +6,8 @@ import {CategoryViewModel} from '../../../core/models/view-models/category.view-
 @Component({
   selector: 'app-publish-destination',
   templateUrl: './create-category.component.html',
+  styleUrls: ['./create-category.component.scss']
+
 })
 export class CreateCategoryComponent implements OnInit {
   public categoryModel : CategoryViewModel;
@@ -31,11 +33,13 @@ export class CreateCategoryComponent implements OnInit {
       console.log(data);
       if(data['success']){
         this.successfulAddCategory();
+        window.location.reload();
       }else{
         this.addCategoryFail  = true;
         this.failMessage = data.message;
       }
-    })
+    });
+
   }
 
   successfulAddCategory() : void {

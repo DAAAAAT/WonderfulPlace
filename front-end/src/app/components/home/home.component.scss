@@ -1,3 +1,5 @@
+$light-green: #0ebc82;
+
 .card{
   margin: 1rem;
   padding: 1rem;
@@ -38,4 +40,38 @@ img.resize {
   text-shadow: 0 0 2px cyan;
   border-style: none none double none;
   border-color: cyan;
+}
+
+
+  p.map{
+  color: black;
+  display: block;
+  font-family: 'Raleway', sans-serif;
+  margin-bottom: 3px;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 400;}
+
+
+.map-btn {
+  clear: both;
+  //padding:10px;
+  display: flex;
+  justify-content: center;
+  color: white;
+  font-size: 17px;
+  border-radius: 4px;
+  border: 1px solid $light-green;
+  background: $light-green;
+  width: 120px;
+  line-height: 24px;
+  margin: 0px auto 0px auto;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 400;
+  transition: background-color 0.30s ease;
+  &:hover {
+    background: white;
+    color: $light-green;
+  }
 }

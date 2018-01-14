@@ -40,5 +40,6 @@ export class HeaderComponent implements OnInit {
 
   public logOut(): void {
     this.authService.logOut()
+    window.location.reload()
   }
 }

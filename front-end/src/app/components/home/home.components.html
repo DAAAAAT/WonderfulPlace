@@ -1,9 +1,10 @@
-<div class="container">
+<div class="map-container">
   <!-- this creates a google map on the page with the given lat/lng from -->
   <!-- the component as the initial center of the map: -->
 
-  <agm-map mapTypeId='terrain' [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="false" [zoomControl]="false"
-    (mapClick)="mapClicked($event)">
+  <agm-map mapTypeId='terrain' [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="false"
+           [zoomControl]="false"
+           (mapClick)="mapClicked($event)">
 
     <agm-marker *ngFor="let d of destinationModel" [latitude]="d.latitude" [longitude]="d.longitude">
       <agm-info-window class="info-window">

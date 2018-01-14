@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node index.js"
   },
-  "author": "Ivaylo Kenov",
+  "author": "Daaaaat",
   "license": "MIT",
   "dependencies": {
     "body-parser": "1.17.2",

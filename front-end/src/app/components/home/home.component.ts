@@ -24,12 +24,11 @@ export class HomeComponent implements OnInit {
     this.destinationService.getAllDestinations().subscribe(data => {
       if (data['success']) {
         this.destinationModel = data['topDestinations'];
-        console.log(this.destinationModel)
+        console.log(this.destinationModel);
       }
     })
   }
 
-  public clickedMarker(label: string, index: number) {
-    console.log(`clicked the marker: ${label || index}`)
+  public clickedMarker(destination: DestinationViewModel) {
   }
 }

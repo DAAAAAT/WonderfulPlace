@@ -6,9 +6,10 @@
            [zoomControl]="false"
            (mapClick)="mapClicked($event)">
 
-    <agm-marker *ngFor="let d of destinationModel; let i = index" (markerClick)="clickedMarker(d.label, i)"
-                [latitude]="d.latitude"
-                [longitude]="d.longitude" [label]="d.label">
+    <agm-marker *ngFor="let d of destinationModel" [latitude]="d.latitude" [longitude]="d.longitude">
+      <agm-info-window>
+        <button routerLink="/destination/{{d._id}}">Details</button>
+      </agm-info-window>
     </agm-marker>
 
   </agm-map>

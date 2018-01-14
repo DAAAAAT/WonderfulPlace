@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  templateUrl: './home.components.html',
-  styleUrls: ['./home.component.scss']
+  templateUrl: './popup-window.components.html'
 })
 export class PopupComponent {
-  // google maps zoom level
+  
 }

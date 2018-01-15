@@ -14,7 +14,6 @@ router.post('/addDestination', async (req, res, next) => {
         let token = req.headers.authorization.split(' ')[1];
         let decoded = await jwt.verify(token, 's0m3 r4nd0m str1ng');
         let userId = decoded.sub;
-
         let DestinationObj = {
             name: reqBody.name,
             image: reqBody.image,
@@ -87,6 +86,7 @@ router.get('/getAllCategories', async (req, res, next) => {
     }
 
 })
+
 
 router.delete('/deleteCategory/:id', async (req, res, next) => {
     try {

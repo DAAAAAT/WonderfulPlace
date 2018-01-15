@@ -57,6 +57,8 @@ router.get('/', async (req, res, next) => {
     }
 })
 
+
+
 router.get('/:id', (req, res, next) => {
     try {
         let id = req.params.id

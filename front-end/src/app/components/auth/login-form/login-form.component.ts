@@ -26,6 +26,7 @@ export class LoginFormComponent {
           console.log(data);
           if(data['success']){
             this.successfulLogin(data);
+            window.location.reload();
           }else{
 
             this.loginFail = true;

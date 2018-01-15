@@ -2,18 +2,18 @@
   <div class="details">
     <div class="detailed-wrapper">
       <div class="left-detail">
-        <img src="https://static.pexels.com/photos/20974/pexels-photo.jpg"
+        <img src="{{destinationModel.destination.image}}"
              alt="img">
       </div>
       <div class="right-detail">
-        <h1>{{destinationModel.name}}</h1>
-        <h1 class="destination">{{destinationModel.city}}, {{destinationModel.country}}</h1>
+        <h1>{{destinationModel.destination.name}}</h1>
+        <h1 class="destination">{{destinationModel.destination.city}}, {{destinationModel.destination.country}}</h1>
         <p><i class="fa fa-clock-o"></i> Posted on 13 Jan 2017 &emsp; <i class="fa fa-comments"></i> 4 comments
         </p>
         <p class="description-title">Description:</p>
-        <p class="description-text">{{destinationModel.description}}</p>
+        <p class="description-text">{{destinationModel.destination.description}}</p>
         <p class="author">Admin</p>
-        <p class="category">{{destinationModel.category}}</p>
+        <p class="category">{{destinationModel.destination.category.title}}</p>
         <p class="rating">Rating: &#9733; &#9733; &#9734; &#9734; &#9734;</p>
         <button class="edit">Edit</button>
         <button class="delete" (click)="delete()">Delete</button>

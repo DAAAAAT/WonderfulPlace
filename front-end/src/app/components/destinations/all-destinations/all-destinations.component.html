@@ -5,7 +5,7 @@
     <div class="card-wrapper">
       <article *ngFor="let d of destinationModel" class="destination-card">
         <h1>{{d.name}}</h1>
-        <img src="d.image" alt="">
+        <img src="{{d.image}}" alt="">
         <div class="left-side">
           <h2 class="city">
             <span>City:</span> {{d.city}}</h2>

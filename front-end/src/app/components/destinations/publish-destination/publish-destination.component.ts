@@ -36,7 +36,6 @@ export class PublishDestinationComponent implements OnInit {
 
 
   createDestination() : void {
-    console.log(this.destinationModel);
     this.destinationService.published(this.destinationModel).subscribe(data => {
       console.log(data);
       if(data['success']){

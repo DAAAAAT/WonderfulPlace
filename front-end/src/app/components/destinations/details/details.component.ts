@@ -22,6 +22,7 @@ export class DetailsComponent {
     this.destinationService.getDistinationById(this.id)
       .subscribe(dest => {
         this.destinationModel = dest
+        console.log(this.destinationModel)
       })
   }
 

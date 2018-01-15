@@ -46,11 +46,12 @@
           </div>
 
           <div class="form-group">
-            <label for="category">Category</label>
-            <select class="form-control" id="category"
+            <label for="categoryId">Category</label>
+            <select class="form-control" id="categoryId"
                     required
                     [(ngModel)]="destinationModel.categoryId"
-                    name="categoryId">
+                    name="categoryId"
+                    #categoryId="ngModel">
               <option *ngFor="let cat of allCategory" [value]="cat._id">{{cat.title}}</option>
             </select>
           </div>
@@ -72,13 +73,13 @@
           </div>
 
           <div class="form-group">
-            <label for="longitude">Longitude: </label>
-            <input type="number" class="form-control" id="longitude"
+            <label for="lng">Longitude: </label>
+            <input type="number" class="form-control" id="lng"
                    required
                    [(ngModel)]="destinationModel.lng"
-                   name="longitude"
-                   #longitude="ngModel">
-            <div [hidden]="longitude.valid || longitude.pristine" class="alert alert-danger">
+                   name="lng"
+                   #lng="ngModel">
+            <div [hidden]="lng.valid || lng.pristine" class="alert alert-danger">
               Longitude is required!
             </div>
           </div>
